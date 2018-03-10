@@ -9,10 +9,9 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.RecyclerView
 import br.com.aaascp.androidapp.R
 import br.com.aaascp.androidapp.domain.entity.Lesson
-import br.com.aaascp.androidapp.infra.repository.LessonRepository
 import kotlinx.android.synthetic.main.activity_lesson_list.*
 
-class LessonActivity : AppCompatActivity() {
+class LessonListActivity : AppCompatActivity() {
 
     companion object {
         private const val AREA_ID_EXTRA = "AREA_ID_EXTRA"
@@ -21,7 +20,7 @@ class LessonActivity : AppCompatActivity() {
                 context: Context,
                 areaId: String) {
 
-            val intent = Intent(context, LessonActivity::class.java)
+            val intent = Intent(context, LessonListActivity::class.java)
             intent.putExtra(AREA_ID_EXTRA, areaId)
 
             context.startActivity(intent)
@@ -33,11 +32,8 @@ class LessonActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_lesson_list)
 
-        val viewModel = ViewModelProviders.of(this).get(LessonViewModel::class.java)
-        viewModel.init(
-                LessonRepository(this),
-                intent.extras.getString(AREA_ID_EXTRA))
-
+        val viewModel = ViewModelProviders.of(this).get(LessonListViewModel::class.java)
+        viewModel.getLessonsForArea(intent.extras.getString(AREA_ID_EXTRA))
         viewModel.lessons?.observe(
                 this,
                 MyObserver(

@@ -10,7 +10,6 @@ import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.support.v7.widget.RecyclerView
 import br.com.aaascp.androidapp.domain.entity.Area
-import br.com.aaascp.androidapp.infra.repository.AreaRepository
 
 
 class AreaListActivity : AppCompatActivity() {
@@ -20,7 +19,6 @@ class AreaListActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_area_list)
         val viewModel = ViewModelProviders.of(this).get(AreaListViewModel::class.java)
-        viewModel.init(AreaRepository(this))
         viewModel.areas?.observe(
                 this,
                 MyObserver(

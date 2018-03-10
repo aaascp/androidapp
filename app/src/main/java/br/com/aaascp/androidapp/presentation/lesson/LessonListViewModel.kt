@@ -2,15 +2,23 @@ package br.com.aaascp.androidapp.presentation.lesson
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.ViewModel
+import br.com.aaascp.androidapp.MainApplication
 import br.com.aaascp.androidapp.domain.entity.Lesson
 import br.com.aaascp.androidapp.infra.repository.LessonRepository
+import javax.inject.Inject
 
-class LessonViewModel : ViewModel() {
+class LessonListViewModel : ViewModel() {
+
+    @Inject
+    lateinit var lessonRepository: LessonRepository
+
     var lessons: LiveData<List<Lesson>>? = null
 
-    fun init(
-            lessonRepository: LessonRepository,
-            areaId: String) {
+    init {
+        MainApplication.component.inject(this)
+    }
+
+    fun getLessonsForArea(areaId: String) {
         if (this.lessons != null) {
             return
         }

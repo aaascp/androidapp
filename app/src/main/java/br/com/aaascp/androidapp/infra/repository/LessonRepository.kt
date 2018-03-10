@@ -1,12 +1,8 @@
 package br.com.aaascp.androidapp.infra.repository
 
 import android.arch.lifecycle.LiveData
-import android.arch.persistence.room.Room
-import android.content.Context
 import br.com.aaascp.androidapp.domain.entity.Lesson
-import br.com.aaascp.androidapp.infra.source.local.AppDatabase
 import br.com.aaascp.androidapp.infra.source.local.dao.LessonDao
-import br.com.aaascp.androidapp.infra.source.remote.ServiceGenerator
 import br.com.aaascp.androidapp.infra.source.remote.body.request.AreaFilter
 import br.com.aaascp.androidapp.infra.source.remote.body.request.LessonFilterRequestBody
 import br.com.aaascp.androidapp.infra.source.remote.body.response.DataResponseBody
@@ -16,21 +12,14 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import java.util.concurrent.Executor
-import java.util.concurrent.LinkedBlockingQueue
-import java.util.concurrent.ThreadPoolExecutor
-import java.util.concurrent.TimeUnit
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class LessonRepository(context: Context) {
-
-    private val db = provideDatabase(context)
-    private val lessonDao = db.lessonDao()
-    private val executor =
-            ThreadPoolExecutor(
-                    2,
-                    2,
-                    0,
-                    TimeUnit.MILLISECONDS,
-                    LinkedBlockingQueue<Runnable>())
+@Singleton
+class LessonRepository @Inject constructor(
+        private val endpoint: LessonEndpoint,
+        private val lessonDao: LessonDao,
+        private val executor: Executor) {
 
 
     fun getAllForArea(areaId: String): LiveData<List<Lesson>> {
@@ -39,23 +28,10 @@ class LessonRepository(context: Context) {
     }
 
     private fun refreshSubjectList(areaId: String) {
-        val lessonEndpointEndpoint =
-                ServiceGenerator.createService(LessonEndpoint::class.java)
-
-        lessonEndpointEndpoint
-                .getAllForArea2(
+        endpoint.getAllForArea(
                         LessonFilterRequestBody(
                                 AreaFilter(areaId)).toString())
                 .enqueue(MyCallback(lessonDao, executor))
-    }
-
-    fun provideDatabase(context: Context): AppDatabase {
-        return Room.databaseBuilder(
-                context,
-                AppDatabase::class.java,
-                "appdb.db"
-        ).fallbackToDestructiveMigration()
-                .build()
     }
 
     class MyCallback(

@@ -6,8 +6,10 @@ import br.com.aaascp.androidapp.domain.entity.Lesson
 import br.com.aaascp.androidapp.domain.entity.Area
 import br.com.aaascp.androidapp.infra.source.local.dao.AreaDao
 import br.com.aaascp.androidapp.infra.source.local.dao.LessonDao
+import javax.inject.Singleton
 
 
+@Singleton
 @Database(
         entities = arrayOf(
                 Area::class,
