@@ -31,10 +31,15 @@ class LessonRepository @Inject constructor(
         endpoint.getAllForArea(
                         LessonFilterRequestBody(
                                 AreaFilter(areaId)).toString())
-                .enqueue(MyCallback(lessonDao, executor))
+                .enqueue(
+                        MyCallback(
+                                areaId,
+                                lessonDao,
+                                executor))
     }
 
     class MyCallback(
+            private val areaId: String,
             private val lessonDao: LessonDao,
             private val executor: Executor) : Callback<DataResponseBody<List<LessonResponseBody>>> {
         override fun onFailure(
@@ -49,7 +54,7 @@ class LessonRepository @Inject constructor(
 
             response?.body()?.let {
                 executor.execute({
-                    //                    lessonDao.removeAllForArea(areaId)
+                    lessonDao.removeAllForArea(areaId)
                     lessonDao.save(transform(it.data))
                 })
             }

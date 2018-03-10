@@ -10,9 +10,12 @@ import br.com.aaascp.androidapp.domain.entity.Lesson
 @Dao
 interface LessonDao {
 
-    @Query("SELECT * from Lesson WHERE areaId = :areaId")
+    @Query("SELECT * FROM Lesson WHERE areaId = :areaId")
     fun getAllForArea(areaId: String): LiveData<List<Lesson>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun save(lessons: List<Lesson>)
+
+    @Query("DELETE FROM Lesson WHERE areaId = :areaId")
+    fun removeAllForArea(areaId: String)
 }

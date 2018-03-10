@@ -43,7 +43,7 @@ class AreaRepository @Inject constructor(
 
             response?.body()?.let {
                 executor.execute({
-                    //                    areaDao.removeAll()
+                    areaDao.removeAll()
                     areaDao.save(transform(it.data))
                 })
             }
