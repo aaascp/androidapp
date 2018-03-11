@@ -1,16 +1,12 @@
 package br.com.aaascp.androidapp.presentation.area
 
-import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 
 import br.com.aaascp.androidapp.R
 import kotlinx.android.synthetic.main.activity_area_list.*
 import android.arch.lifecycle.ViewModelProviders
-import android.content.Context
-import android.support.v7.widget.RecyclerView
-import br.com.aaascp.androidapp.domain.entity.Area
-
+import br.com.aaascp.androidapp.presentation.util.ObserverUtil
 
 class AreaListActivity : AppCompatActivity() {
 
@@ -18,24 +14,24 @@ class AreaListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_area_list)
-        val viewModel = ViewModelProviders.of(this).get(AreaListViewModel::class.java)
-        viewModel.areas?.observe(
-                this,
-                MyObserver(
-                        this,
-                        area_recycler_view))
+
+        setViewModel()
     }
 
-    class MyObserver(
-            private val context: Context,
-            private val recyclerView: RecyclerView
-    ) : Observer<List<Area>> {
+    private fun setViewModel() {
+        val viewModel =
+                ViewModelProviders
+                        .of(this)
+                        .get(AreaListViewModel::class.java)
 
-        override fun onChanged(areas: List<Area>?) {
-            areas?.let {
-                recyclerView.adapter = AreaListAdapter(it, context)
-            }
-        }
-
+        viewModel.areas?.observe(
+                this,
+                ObserverUtil.Companion.OnChanged({
+                    area_recycler_view.adapter =
+                                    AreaListAdapter(
+                                            this,
+                                            it)
+                })
+        )
     }
 }

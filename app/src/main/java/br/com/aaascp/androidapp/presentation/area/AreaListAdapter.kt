@@ -14,8 +14,8 @@ import kotlinx.android.synthetic.main.row_area_item.view.*
 
 
 class AreaListAdapter(
-        private val areas: List<Area>,
-        private val context: Context
+        private val context: Context,
+        private val areas: List<Area>
 ) : Adapter<AreaListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
