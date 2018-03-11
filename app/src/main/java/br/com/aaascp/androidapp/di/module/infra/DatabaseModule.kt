@@ -67,27 +67,21 @@ class DatabaseModule(application: Application) {
     @Provides
     fun areaRepository(
             areaEndpoint: AreaEndpoint,
-            areaDao: AreaDao,
-            executor: Executor): AreaRepository {
+            areaDao: AreaDao): AreaRepository {
 
         return AreaRepository(
                 areaEndpoint,
-                areaDao,
-                executor
-        )
+                areaDao)
     }
 
     @Singleton
     @Provides
     fun lessonRepository(
             lessonEndpoint: LessonEndpoint,
-            lessonDao: LessonDao,
-            executor: Executor): LessonRepository {
+            lessonDao: LessonDao): LessonRepository {
 
         return LessonRepository(
                 lessonEndpoint,
-                lessonDao,
-                executor
-        )
+                lessonDao)
     }
 }

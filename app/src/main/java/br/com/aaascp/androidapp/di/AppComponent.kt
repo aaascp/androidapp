@@ -6,6 +6,7 @@ import br.com.aaascp.androidapp.di.module.infra.EndpointModule
 import br.com.aaascp.androidapp.presentation.area.AreaListViewModel
 import br.com.aaascp.androidapp.presentation.lesson.LessonListViewModel
 import dagger.Component
+import java.util.concurrent.Executor
 import javax.inject.Singleton
 
 @Singleton
@@ -19,4 +20,6 @@ interface AppComponent {
     fun inject(areaListViewModel: AreaListViewModel)
 
     fun inject(lessonListViewModel: LessonListViewModel)
+
+    fun getExecutor(): Executor
 }

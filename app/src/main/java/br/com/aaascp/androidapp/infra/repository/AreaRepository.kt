@@ -6,18 +6,14 @@ import br.com.aaascp.androidapp.infra.source.local.dao.AreaDao
 import br.com.aaascp.androidapp.infra.source.remote.body.response.AreaResponseBody
 import br.com.aaascp.androidapp.infra.source.remote.body.response.DataResponseBody
 import br.com.aaascp.androidapp.infra.source.remote.endpoint.AreaEndpoint
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import java.util.concurrent.Executor
+import br.com.aaascp.androidapp.util.FunctionUtils
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class AreaRepository @Inject constructor(
         private val endpoint: AreaEndpoint,
-        private val areaDao: AreaDao,
-        private val executor: Executor) {
+        private val areaDao: AreaDao) {
 
     fun getSubjectList(): LiveData<List<Area>> {
         refreshSubjectList()
@@ -25,34 +21,21 @@ class AreaRepository @Inject constructor(
     }
 
     private fun refreshSubjectList() {
-        endpoint.getAreaList().enqueue(MyCallback(areaDao, executor))
+        endpoint.getAreaList().enqueue(
+                RepositoryCallbackBase(
+                        FunctionUtils.Companion.Runnable1({
+                            it?.data?.let {
+                                areaDao.removeAll()
+                                areaDao.save(transform(it))
+                            }
+                        })
+                )
+        )
     }
 
-    class MyCallback(
-            private val areaDao: AreaDao,
-            private val executor: Executor) : Callback<DataResponseBody<List<AreaResponseBody>>> {
-        override fun onFailure(
-                call: Call<DataResponseBody<List<AreaResponseBody>>>?,
-                t: Throwable?) {
-
-        }
-
-        override fun onResponse(
-                call: Call<DataResponseBody<List<AreaResponseBody>>>?,
-                response: Response<DataResponseBody<List<AreaResponseBody>>>?) {
-
-            response?.body()?.let {
-                executor.execute({
-                    areaDao.removeAll()
-                    areaDao.save(transform(it.data))
-                })
-            }
-        }
-
-        private fun transform(lessons: List<AreaResponseBody>): List<Area> {
-            return lessons.map {
-                Area(it.id, it.title)
-            }
+    private fun transform(lessons: List<AreaResponseBody>): List<Area> {
+        return lessons.map {
+            Area(it.id, it.title)
         }
     }
 }
