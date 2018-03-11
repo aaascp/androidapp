@@ -4,9 +4,9 @@ import android.arch.lifecycle.LiveData
 import br.com.aaascp.androidapp.infra.repository.RepositoryCallbackBase
 import br.com.aaascp.androidapp.infra.source.local.dao.lesson.LessonLocalDataSource
 import br.com.aaascp.androidapp.infra.source.local.entity.Lesson
-import br.com.aaascp.androidapp.infra.source.remote.body.request.AreaFilter
-import br.com.aaascp.androidapp.infra.source.remote.body.request.LessonFilterRequestBody
-import br.com.aaascp.androidapp.infra.source.remote.body.response.LessonResponseBody
+import br.com.aaascp.androidapp.infra.source.remote.body.lesson.AreaFilter
+import br.com.aaascp.androidapp.infra.source.remote.body.lesson.LessonFilterRequestBody
+import br.com.aaascp.androidapp.infra.source.remote.body.lesson.LessonResponseBody
 import br.com.aaascp.androidapp.infra.source.remote.endpoint.LessonEndpoint
 import br.com.aaascp.androidapp.util.FunctionUtils
 import javax.inject.Inject

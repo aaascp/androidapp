@@ -1,4 +1,4 @@
-package br.com.aaascp.androidapp.infra.source.remote.body.request
+package br.com.aaascp.androidapp.infra.source.remote.body.lesson
 
 data class AreaFilter(
         val value: String,

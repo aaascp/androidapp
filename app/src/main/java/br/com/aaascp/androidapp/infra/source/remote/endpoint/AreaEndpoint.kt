@@ -1,7 +1,7 @@
 package br.com.aaascp.androidapp.infra.source.remote.endpoint
 
-import br.com.aaascp.androidapp.infra.source.remote.body.response.AreaResponseBody
-import br.com.aaascp.androidapp.infra.source.remote.body.response.DataResponseBody
+import br.com.aaascp.androidapp.infra.source.remote.body.area.AreaResponseBody
+import br.com.aaascp.androidapp.infra.source.remote.body.DataResponseBody
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
