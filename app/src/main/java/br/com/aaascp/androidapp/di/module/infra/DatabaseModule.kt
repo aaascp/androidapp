@@ -2,25 +2,25 @@ package br.com.aaascp.androidapp.di.module.infra
 
 import android.app.Application
 import android.arch.persistence.room.Room
-import br.com.aaascp.androidapp.infra.repository.AreaRepository
-import br.com.aaascp.androidapp.infra.repository.LessonRepository
+import br.com.aaascp.androidapp.infra.repository.area.AreaRepository
+import br.com.aaascp.androidapp.infra.source.local.dao.area.AreaLocalDataSource
+import br.com.aaascp.androidapp.infra.repository.area.AreaWithLocalDataRepository
+import br.com.aaascp.androidapp.infra.repository.lesson.LessonRepository
+import br.com.aaascp.androidapp.infra.source.local.dao.lesson.LessonLocalDataSource
+import br.com.aaascp.androidapp.infra.repository.lesson.LessonWithLocalDataRepository
 import br.com.aaascp.androidapp.infra.source.local.AppDatabase
-import br.com.aaascp.androidapp.infra.source.local.dao.AreaDao
-import br.com.aaascp.androidapp.infra.source.local.dao.LessonDao
+import br.com.aaascp.androidapp.infra.source.local.RoomDatabase
 import br.com.aaascp.androidapp.infra.source.remote.endpoint.AreaEndpoint
 import br.com.aaascp.androidapp.infra.source.remote.endpoint.LessonEndpoint
 import dagger.Module
 import dagger.Provides
-import java.util.concurrent.Executor
-import java.util.concurrent.LinkedBlockingQueue
-import java.util.concurrent.ThreadPoolExecutor
-import java.util.concurrent.TimeUnit
+import java.util.concurrent.*
 import javax.inject.Singleton
 
 @Module
 class DatabaseModule(application: Application) {
 
-    private val database: AppDatabase
+    private val database: RoomDatabase
 
     companion object {
         const val DATABASE_NAME = "app-db.db"
@@ -29,7 +29,7 @@ class DatabaseModule(application: Application) {
     init {
         database = Room.databaseBuilder(
                 application,
-                AppDatabase::class.java,
+                RoomDatabase::class.java,
                 DATABASE_NAME
         ).build()
     }
@@ -53,13 +53,13 @@ class DatabaseModule(application: Application) {
 
     @Singleton
     @Provides
-    fun providesAreaDao(database: AppDatabase): AreaDao {
+    fun providesAreaDataSource(database: AppDatabase): AreaLocalDataSource {
         return database.areaDao()
     }
 
     @Singleton
     @Provides
-    fun providesLessonDao(database: AppDatabase): LessonDao {
+    fun providesLessonDataSource(database: AppDatabase): LessonLocalDataSource {
         return database.lessonDao()
     }
 
@@ -67,21 +67,21 @@ class DatabaseModule(application: Application) {
     @Provides
     fun areaRepository(
             areaEndpoint: AreaEndpoint,
-            areaDao: AreaDao): AreaRepository {
+            areaLocalDataSource: AreaLocalDataSource): AreaRepository {
 
-        return AreaRepository(
+        return AreaWithLocalDataRepository(
                 areaEndpoint,
-                areaDao)
+                areaLocalDataSource)
     }
 
     @Singleton
     @Provides
     fun lessonRepository(
             lessonEndpoint: LessonEndpoint,
-            lessonDao: LessonDao): LessonRepository {
+            lessonLocalDataSource: LessonLocalDataSource): LessonRepository {
 
-        return LessonRepository(
+        return LessonWithLocalDataRepository(
                 lessonEndpoint,
-                lessonDao)
+                lessonLocalDataSource)
     }
 }

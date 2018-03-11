@@ -9,7 +9,7 @@ import retrofit2.http.Query
 interface AreaEndpoint {
 
     @GET("/v2/admin/areas")
-    fun getAreaList(
+    fun getAll(
             @Query("start") start: Int  = 0,
             @Query("end") end: Int = 999
     ): Call<DataResponseBody<List<AreaResponseBody>>>

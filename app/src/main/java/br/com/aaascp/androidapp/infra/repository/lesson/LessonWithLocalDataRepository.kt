@@ -1,8 +1,9 @@
-package br.com.aaascp.androidapp.infra.repository
+package br.com.aaascp.androidapp.infra.repository.lesson
 
 import android.arch.lifecycle.LiveData
+import br.com.aaascp.androidapp.infra.repository.RepositoryCallbackBase
+import br.com.aaascp.androidapp.infra.source.local.dao.lesson.LessonLocalDataSource
 import br.com.aaascp.androidapp.infra.source.local.entity.Lesson
-import br.com.aaascp.androidapp.infra.source.local.dao.LessonDao
 import br.com.aaascp.androidapp.infra.source.remote.body.request.AreaFilter
 import br.com.aaascp.androidapp.infra.source.remote.body.request.LessonFilterRequestBody
 import br.com.aaascp.androidapp.infra.source.remote.body.response.LessonResponseBody
@@ -12,14 +13,14 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class LessonRepository @Inject constructor(
+class LessonWithLocalDataRepository @Inject constructor(
         private val endpoint: LessonEndpoint,
-        private val lessonDao: LessonDao) {
+        private val lessonLocalDataSource: LessonLocalDataSource
+) : LessonRepository {
 
-
-    fun getAllForArea(areaId: String): LiveData<List<Lesson>> {
+    override fun getAllForArea(areaId: String): LiveData<List<Lesson>> {
         refreshSubjectList(areaId)
-        return lessonDao.getAllForArea(areaId)
+        return lessonLocalDataSource.getAllForArea(areaId)
     }
 
     private fun refreshSubjectList(areaId: String) {
@@ -30,8 +31,8 @@ class LessonRepository @Inject constructor(
                         RepositoryCallbackBase(
                                 FunctionUtils.Companion.Runnable1({
                                     it?.data?.let {
-                                        lessonDao.removeAllForArea(areaId)
-                                        lessonDao.save(transform(it))
+                                        lessonLocalDataSource.removeAllForArea(areaId)
+                                        lessonLocalDataSource.save(transform(it))
                                     }
 
                                 })
