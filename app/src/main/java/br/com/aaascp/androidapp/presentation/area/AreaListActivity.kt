@@ -10,11 +10,15 @@ import br.com.aaascp.androidapp.presentation.util.ObserverUtil
 
 class AreaListActivity : AppCompatActivity() {
 
+    lateinit var adapter: AreaListAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_area_list)
 
+        adapter = AreaListAdapter(this)
+        area_recycler_view.adapter = adapter
         setViewModel()
     }
 

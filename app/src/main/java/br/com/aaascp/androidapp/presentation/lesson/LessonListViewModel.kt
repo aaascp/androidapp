@@ -12,16 +12,13 @@ class LessonListViewModel : ViewModel() {
     @Inject
     lateinit var lessonRepository: LessonRepository
 
-    var lessons: LiveData<List<Lesson>>? = null
+    lateinit var lessons: LiveData<List<Lesson>>
 
     init {
         MainApplication.component.inject(this)
     }
 
     fun getLessonsForArea(areaId: String) {
-        if (this.lessons != null) {
-            return
-        }
         lessons = lessonRepository.getAllForArea(areaId)
     }
 }

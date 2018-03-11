@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.row_area_item.view.*
 
 class AreaListAdapter(
         private val context: Context,
-        private val areas: List<Area>
+        private var areas: List<Area> = listOf()
 ) : Adapter<AreaListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
@@ -43,6 +43,11 @@ class AreaListAdapter(
 
     override fun getItemCount(): Int {
         return areas.size
+    }
+
+    fun setAreaList(areas: List<Area>) {
+        this.areas = areas
+        notifyDataSetChanged()
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {

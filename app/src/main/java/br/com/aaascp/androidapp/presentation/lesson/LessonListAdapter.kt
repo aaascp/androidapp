@@ -12,7 +12,7 @@ import kotlinx.android.synthetic.main.row_lesson_item.view.*
 
 class LessonListAdapter(
         private val context: Context,
-        private val lessons: List<Lesson>
+        private var lessons: List<Lesson> = listOf()
 ) : RecyclerView.Adapter<LessonListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
@@ -27,7 +27,9 @@ class LessonListAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
         val lesson = lessons[position]
+        val index = position + 1
         holder?.let {
+            it.count.text = "$index"
             it.id.text = lesson.id
             it.title.text = lesson.title
         }
@@ -37,7 +39,13 @@ class LessonListAdapter(
         return lessons.size
     }
 
+    fun setLessonList(lessons: List<Lesson>) {
+        this.lessons = lessons
+        notifyDataSetChanged()
+    }
+
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val count: TextView = itemView.lesson_item_count
         val id: TextView = itemView.lesson_item_id
         val title: TextView = itemView.lesson_item_title
     }

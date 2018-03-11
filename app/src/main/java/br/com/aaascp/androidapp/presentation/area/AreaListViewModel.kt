@@ -17,13 +17,6 @@ class AreaListViewModel : ViewModel() {
 
     init {
         MainApplication.component.inject(this)
-        getAreas()
-    }
-
-    private fun getAreas() {
-        if (this.areas != null) {
-            return
-        }
         areas = areaRepository.getAll()
     }
 }

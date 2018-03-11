@@ -11,6 +11,8 @@ import kotlinx.android.synthetic.main.activity_lesson_list.*
 
 class LessonListActivity : AppCompatActivity() {
 
+    lateinit var adapter: LessonListAdapter
+
     companion object {
         private const val AREA_ID_EXTRA = "AREA_ID_EXTRA"
 
@@ -30,9 +32,11 @@ class LessonListActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_lesson_list)
 
+        adapter = LessonListAdapter(this)
+        lesson_recycler_view.adapter = adapter
+
         setViewModel()
     }
-
 
     private fun setViewModel() {
         val viewModel =
@@ -41,13 +45,10 @@ class LessonListActivity : AppCompatActivity() {
                         .get(LessonListViewModel::class.java)
 
         viewModel.getLessonsForArea(intent.extras.getString(AREA_ID_EXTRA))
-        viewModel.lessons?.observe(
+        viewModel.lessons.observe(
                 this,
                 ObserverUtil.Companion.OnChanged({
-                    lesson_recycler_view.adapter =
-                            LessonListAdapter(
-                                    this,
-                                    it)
+                    adapter.setLessonList(it)
                 })
         )
     }
