@@ -17,11 +17,11 @@ class AreaWithLocalDataRepository @Inject constructor(
 ) : AreaRepository {
 
     override fun getAll(): LiveData<List<Area>> {
-        refreshSubjectList()
+        refreshAreaList()
         return areaLocalDataSource.getAll()
     }
 
-    private fun refreshSubjectList() {
+    private fun refreshAreaList() {
         endpoint.getAll().enqueue(
                 RepositoryCallbackBase(
                         FunctionUtils.Companion.Runnable1({

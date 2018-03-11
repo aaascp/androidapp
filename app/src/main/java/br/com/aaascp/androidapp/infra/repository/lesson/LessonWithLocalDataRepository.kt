@@ -4,7 +4,6 @@ import android.arch.lifecycle.LiveData
 import br.com.aaascp.androidapp.infra.repository.RepositoryCallbackBase
 import br.com.aaascp.androidapp.infra.source.local.dao.lesson.LessonLocalDataSource
 import br.com.aaascp.androidapp.infra.source.local.entity.Lesson
-import br.com.aaascp.androidapp.infra.source.remote.body.lesson.AreaFilter
 import br.com.aaascp.androidapp.infra.source.remote.body.lesson.LessonFilterRequestBody
 import br.com.aaascp.androidapp.infra.source.remote.body.lesson.LessonResponseBody
 import br.com.aaascp.androidapp.infra.source.remote.endpoint.LessonEndpoint
@@ -19,14 +18,13 @@ class LessonWithLocalDataRepository @Inject constructor(
 ) : LessonRepository {
 
     override fun getAllForArea(areaId: String): LiveData<List<Lesson>> {
-        refreshSubjectList(areaId)
+        refreshLessonList(areaId)
         return lessonLocalDataSource.getAllForArea(areaId)
     }
 
-    private fun refreshSubjectList(areaId: String) {
+    private fun refreshLessonList(areaId: String) {
         endpoint.getAllForArea(
-                LessonFilterRequestBody(
-                        AreaFilter(areaId)).toString())
+                LessonFilterRequestBody(areaId).serialize())
                 .enqueue(
                         RepositoryCallbackBase(
                                 FunctionUtils.Companion.Runnable1({
@@ -34,7 +32,6 @@ class LessonWithLocalDataRepository @Inject constructor(
                                         lessonLocalDataSource.removeAllForArea(areaId)
                                         lessonLocalDataSource.save(transform(it))
                                     }
-
                                 })
                         )
                 )

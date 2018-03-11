@@ -7,8 +7,8 @@ import retrofit2.http.*
 
 interface LessonEndpoint {
 
-    @GET("/v2/admin/lessons?filter=")
+    @GET("/v2/admin/lessons")
     fun getAllForArea(
-            @Query("area") lessonFilterRequestBody: String
+            @Query("filter") lessonFilterRequestBody: String
     ): Call<DataResponseBody<List<LessonResponseBody>>>
 }
