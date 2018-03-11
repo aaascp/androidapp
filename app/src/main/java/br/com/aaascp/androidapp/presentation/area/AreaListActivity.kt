@@ -1,16 +1,16 @@
 package br.com.aaascp.androidapp.presentation.area
 
+import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 
 import br.com.aaascp.androidapp.R
 import kotlinx.android.synthetic.main.activity_area_list.*
 import android.arch.lifecycle.ViewModelProviders
-import br.com.aaascp.androidapp.presentation.util.ObserverUtil
 
 class AreaListActivity : AppCompatActivity() {
 
-    lateinit var adapter: AreaListAdapter
+    private lateinit var adapter: AreaListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,14 +28,12 @@ class AreaListActivity : AppCompatActivity() {
                         .of(this)
                         .get(AreaListViewModel::class.java)
 
-        viewModel.areas?.observe(
+        viewModel.areas.observe(
                 this,
-                ObserverUtil.Companion.OnChanged({
-                    area_recycler_view.adapter =
-                                    AreaListAdapter(
-                                            this,
-                                            it)
+                Observer {
+                    it?.let {
+                        adapter.setAreaList(it)
+                    }
                 })
-        )
     }
 }

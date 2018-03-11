@@ -1,12 +1,12 @@
 package br.com.aaascp.androidapp.presentation.lesson
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import br.com.aaascp.androidapp.R
-import br.com.aaascp.androidapp.presentation.util.ObserverUtil
 import kotlinx.android.synthetic.main.activity_lesson_list.*
 
 class LessonListActivity : AppCompatActivity() {
@@ -47,9 +47,6 @@ class LessonListActivity : AppCompatActivity() {
         viewModel.getLessonsForArea(intent.extras.getString(AREA_ID_EXTRA))
         viewModel.lessons.observe(
                 this,
-                ObserverUtil.Companion.OnChanged({
-                    adapter.setLessonList(it)
-                })
-        )
+                Observer{ adapter.submitList(it) })
     }
 }

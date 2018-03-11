@@ -13,7 +13,7 @@ class AreaListViewModel : ViewModel() {
     @Inject
     lateinit var areaRepository: AreaRepository
 
-    var areas: LiveData<List<Area>>? = null
+    var areas: LiveData<List<Area>>
 
     init {
         MainApplication.component.inject(this)

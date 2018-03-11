@@ -1,6 +1,8 @@
 package br.com.aaascp.androidapp.presentation.lesson
 
+import android.arch.paging.PagedListAdapter
 import android.content.Context
+import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -11,11 +13,23 @@ import br.com.aaascp.androidapp.infra.source.local.entity.Lesson
 import kotlinx.android.synthetic.main.row_lesson_item.view.*
 
 class LessonListAdapter(
-        private val context: Context,
-        private var lessons: List<Lesson> = listOf()
-) : RecyclerView.Adapter<LessonListAdapter.ViewHolder>() {
+        private val context: Context
+) : PagedListAdapter<Lesson, LessonListAdapter.ViewHolder>(DIFF_CALLBACK) {
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    companion object {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Lesson>() {
+            override fun areContentsTheSame(oldItem: Lesson, newItem: Lesson): Boolean =
+                    oldItem == newItem
+
+            override fun areItemsTheSame(oldItem: Lesson, newItem: Lesson): Boolean =
+                    oldItem.id == newItem.id
+        }
+    }
+
+    override fun onCreateViewHolder(
+            parent: ViewGroup, viewType: Int
+    ): LessonListAdapter.ViewHolder {
+
         val view =
                 LayoutInflater.from(context)
                         .inflate(
@@ -25,23 +39,16 @@ class LessonListAdapter(
         return LessonListAdapter.ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val lesson = lessons[position]
+    override fun onBindViewHolder(
+            holder: LessonListAdapter.ViewHolder,
+            position: Int) {
+
+        val lesson = getItem(position)
         val index = position + 1
-        holder.let {
-            it.count.text = "$index"
-            it.id.text = lesson.id
-            it.title.text = lesson.title
-        }
-    }
 
-    override fun getItemCount(): Int {
-        return lessons.size
-    }
-
-    fun setLessonList(lessons: List<Lesson>) {
-        this.lessons = lessons
-        notifyDataSetChanged()
+        holder.count.text = "$index"
+        holder.id.text = lesson?.id
+        holder.title.text = lesson?.title
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
