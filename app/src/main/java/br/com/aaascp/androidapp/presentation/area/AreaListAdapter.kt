@@ -18,7 +18,7 @@ class AreaListAdapter(
         private var areas: List<Area> = listOf()
 ) : Adapter<AreaListAdapter.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
                 LayoutInflater.from(context)
                         .inflate(
@@ -28,10 +28,10 @@ class AreaListAdapter(
         return ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val area = areas[position]
         val index = position + 1
-        holder?.let {
+        holder.let {
             it.count.text = "$index"
             it.id.text = area.id
             it.title.text = area.title

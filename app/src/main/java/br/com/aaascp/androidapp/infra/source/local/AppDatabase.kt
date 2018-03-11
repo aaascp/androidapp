@@ -1,10 +1,12 @@
 package br.com.aaascp.androidapp.infra.source.local
 
-import br.com.aaascp.androidapp.infra.source.local.dao.area.AreaRoomDao
-import br.com.aaascp.androidapp.infra.source.local.dao.lesson.LessonRoomDao
+import br.com.aaascp.androidapp.infra.source.local.dao.area.AreaLocalDataSource
+import br.com.aaascp.androidapp.infra.source.local.dao.lesson.LessonLocalDataSource
 
 interface AppDatabase {
-    fun areaDao(): AreaRoomDao
+    fun runInTransaction(body: () -> Unit)
 
-    fun lessonDao(): LessonRoomDao
+    fun areaDao(): AreaLocalDataSource
+
+    fun lessonDao(): LessonLocalDataSource
 }

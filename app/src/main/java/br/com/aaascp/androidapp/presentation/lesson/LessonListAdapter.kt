@@ -15,7 +15,7 @@ class LessonListAdapter(
         private var lessons: List<Lesson> = listOf()
 ) : RecyclerView.Adapter<LessonListAdapter.ViewHolder>() {
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view =
                 LayoutInflater.from(context)
                         .inflate(
@@ -25,10 +25,10 @@ class LessonListAdapter(
         return LessonListAdapter.ViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: ViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val lesson = lessons[position]
         val index = position + 1
-        holder?.let {
+        holder.let {
             it.count.text = "$index"
             it.id.text = lesson.id
             it.title.text = lesson.title

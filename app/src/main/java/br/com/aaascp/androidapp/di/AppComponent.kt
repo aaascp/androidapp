@@ -1,5 +1,6 @@
 package br.com.aaascp.androidapp.di
 
+import android.arch.paging.PagingRequestHelper
 import br.com.aaascp.androidapp.di.module.ApplicationModule
 import br.com.aaascp.androidapp.di.module.infra.DatabaseModule
 import br.com.aaascp.androidapp.di.module.infra.EndpointModule
@@ -22,4 +23,6 @@ interface AppComponent {
     fun inject(lessonListViewModel: LessonListViewModel)
 
     fun getExecutor(): Executor
+
+    fun getPagingRequestHelper(): PagingRequestHelper
 }

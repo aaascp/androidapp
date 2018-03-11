@@ -1,43 +1,33 @@
 package br.com.aaascp.androidapp.infra.repository.area
 
 import android.arch.lifecycle.LiveData
+import br.com.aaascp.androidapp.infra.adapter.AreaAdapter
 import br.com.aaascp.androidapp.infra.repository.RepositoryCallbackBase
-import br.com.aaascp.androidapp.infra.source.local.dao.area.AreaLocalDataSource
+import br.com.aaascp.androidapp.infra.source.local.AppDatabase
 import br.com.aaascp.androidapp.infra.source.local.entity.Area
-import br.com.aaascp.androidapp.infra.source.remote.body.area.AreaResponseBody
 import br.com.aaascp.androidapp.infra.source.remote.endpoint.AreaEndpoint
-import br.com.aaascp.androidapp.util.FunctionUtils
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class AreaWithLocalDataRepository @Inject constructor(
-        private val endpoint: AreaEndpoint,
-        private val areaLocalDataSource: AreaLocalDataSource
+        private val db: AppDatabase,
+        private val endpoint: AreaEndpoint
 ) : AreaRepository {
 
     override fun getAll(): LiveData<List<Area>> {
         refreshAreaList()
-        return areaLocalDataSource.getAll()
+        return db.areaDao().getAll()
     }
 
     private fun refreshAreaList() {
         endpoint.getAll().enqueue(
-                RepositoryCallbackBase(
-                        FunctionUtils.Companion.Runnable1({
-                            it?.data?.let {
-                                areaLocalDataSource.removeAll()
-                                areaLocalDataSource.save(transform(it))
-                            }
-                        })
-                )
-        )
-    }
-
-    private fun transform(lessons: List<AreaResponseBody>): List<Area> {
-        return lessons.map {
-            Area(it.id, it.title)
-        }
+                RepositoryCallbackBase({
+                    db.runInTransaction {
+                        db.areaDao().removeAll()
+                        db.areaDao().save(AreaAdapter.adapt(it.data))
+                    }
+                }))
     }
 }
 

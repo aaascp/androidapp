@@ -3,11 +3,11 @@ package br.com.aaascp.androidapp.util
 class FunctionUtils {
 
     companion object {
-        class Runnable1<T>(
-                private val task: (T?) -> Unit
+        open class Runnable1<T : Any>(
+                private val task: (T) -> Unit
         ) : Runnable {
 
-            var parameter: T? = null
+            lateinit var parameter: T
 
             override fun run() {
                 task(parameter)

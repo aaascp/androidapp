@@ -14,8 +14,13 @@ import javax.inject.Singleton
         entities = arrayOf(
                 Area::class,
                 Lesson::class),
-        version = 1)
+        version = 2)
 abstract class RoomDatabase : RoomDatabase(), AppDatabase {
+
+    override fun runInTransaction(body: () -> Unit) {
+        super.runInTransaction(body)
+    }
+
     abstract override fun areaDao(): AreaRoomDao
 
     abstract override fun lessonDao(): LessonRoomDao

@@ -27,11 +27,13 @@ class DatabaseModule(application: Application) {
     }
 
     init {
-        database = Room.databaseBuilder(
-                application,
-                RoomDatabase::class.java,
-                DATABASE_NAME
-        ).build()
+        database =
+                Room.databaseBuilder(
+                        application,
+                        RoomDatabase::class.java,
+                        DATABASE_NAME
+                ).fallbackToDestructiveMigration()
+                        .build()
     }
 
     @Singleton
@@ -66,22 +68,22 @@ class DatabaseModule(application: Application) {
     @Singleton
     @Provides
     fun areaRepository(
-            areaEndpoint: AreaEndpoint,
-            areaLocalDataSource: AreaLocalDataSource): AreaRepository {
+            db: AppDatabase,
+            areaEndpoint: AreaEndpoint): AreaRepository {
 
         return AreaWithLocalDataRepository(
-                areaEndpoint,
-                areaLocalDataSource)
+                db,
+                areaEndpoint)
     }
 
     @Singleton
     @Provides
     fun lessonRepository(
-            lessonEndpoint: LessonEndpoint,
-            lessonLocalDataSource: LessonLocalDataSource): LessonRepository {
+            db: AppDatabase,
+            lessonEndpoint: LessonEndpoint): LessonRepository {
 
         return LessonWithLocalDataRepository(
-                lessonEndpoint,
-                lessonLocalDataSource)
+                db,
+                lessonEndpoint)
     }
 }
