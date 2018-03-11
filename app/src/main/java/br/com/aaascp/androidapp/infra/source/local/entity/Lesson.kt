@@ -1,4 +1,4 @@
-package br.com.aaascp.androidapp.domain.entity
+package br.com.aaascp.androidapp.infra.source.local.entity
 
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
@@ -8,4 +8,4 @@ data class Lesson(
         @PrimaryKey val id: String,
         val title: String,
         val areaId: String
-);
+)

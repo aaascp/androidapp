@@ -1,4 +1,4 @@
-package br.com.aaascp.androidapp.domain.entity
+package br.com.aaascp.androidapp.infra.source.local.entity
 
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
@@ -7,4 +7,4 @@ import android.arch.persistence.room.PrimaryKey
 data class Area(
         @PrimaryKey val id: String,
         val title: String
-);
+)

@@ -8,7 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import br.com.aaascp.androidapp.R
-import br.com.aaascp.androidapp.domain.entity.Area
+import br.com.aaascp.androidapp.infra.source.local.entity.Area
 import br.com.aaascp.androidapp.presentation.lesson.LessonListActivity
 import kotlinx.android.synthetic.main.row_area_item.view.*
 

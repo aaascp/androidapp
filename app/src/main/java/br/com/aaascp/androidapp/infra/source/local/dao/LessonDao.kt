@@ -5,7 +5,7 @@ import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.OnConflictStrategy
 import android.arch.persistence.room.Query
-import br.com.aaascp.androidapp.domain.entity.Lesson
+import br.com.aaascp.androidapp.infra.source.local.entity.Lesson
 
 @Dao
 interface LessonDao {

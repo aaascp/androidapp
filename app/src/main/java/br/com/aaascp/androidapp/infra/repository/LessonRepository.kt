@@ -1,7 +1,7 @@
 package br.com.aaascp.androidapp.infra.repository
 
 import android.arch.lifecycle.LiveData
-import br.com.aaascp.androidapp.domain.entity.Lesson
+import br.com.aaascp.androidapp.infra.source.local.entity.Lesson
 import br.com.aaascp.androidapp.infra.source.local.dao.LessonDao
 import br.com.aaascp.androidapp.infra.source.remote.body.request.AreaFilter
 import br.com.aaascp.androidapp.infra.source.remote.body.request.LessonFilterRequestBody

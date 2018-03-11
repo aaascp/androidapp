@@ -3,7 +3,7 @@ package br.com.aaascp.androidapp.presentation.area
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.ViewModel
 import br.com.aaascp.androidapp.MainApplication
-import br.com.aaascp.androidapp.domain.entity.Area
+import br.com.aaascp.androidapp.infra.source.local.entity.Area
 import br.com.aaascp.androidapp.infra.repository.AreaRepository
 import javax.inject.Inject
 

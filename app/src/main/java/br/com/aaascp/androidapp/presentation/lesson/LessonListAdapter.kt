@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import br.com.aaascp.androidapp.R
-import br.com.aaascp.androidapp.domain.entity.Lesson
+import br.com.aaascp.androidapp.infra.source.local.entity.Lesson
 import kotlinx.android.synthetic.main.row_lesson_item.view.*
 
 class LessonListAdapter(

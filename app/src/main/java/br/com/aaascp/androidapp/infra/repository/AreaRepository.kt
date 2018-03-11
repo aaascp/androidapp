@@ -1,10 +1,9 @@
 package br.com.aaascp.androidapp.infra.repository
 
 import android.arch.lifecycle.LiveData
-import br.com.aaascp.androidapp.domain.entity.Area
+import br.com.aaascp.androidapp.infra.source.local.entity.Area
 import br.com.aaascp.androidapp.infra.source.local.dao.AreaDao
 import br.com.aaascp.androidapp.infra.source.remote.body.response.AreaResponseBody
-import br.com.aaascp.androidapp.infra.source.remote.body.response.DataResponseBody
 import br.com.aaascp.androidapp.infra.source.remote.endpoint.AreaEndpoint
 import br.com.aaascp.androidapp.util.FunctionUtils
 import javax.inject.Inject
