@@ -12,7 +12,6 @@ import br.com.aaascp.androidapp.infra.source.local.AppDatabase
 import br.com.aaascp.androidapp.infra.source.local.entity.Lesson
 import br.com.aaascp.androidapp.infra.source.remote.body.lesson.LessonFilterRequestBody
 import br.com.aaascp.androidapp.infra.source.remote.endpoint.LessonEndpoint
-import br.com.aaascp.androidapp.util.FunctionUtils
 import javax.inject.Inject
 import javax.inject.Singleton
 

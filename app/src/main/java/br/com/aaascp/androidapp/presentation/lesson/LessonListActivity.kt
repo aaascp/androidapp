@@ -11,10 +11,11 @@ import kotlinx.android.synthetic.main.activity_lesson_list.*
 
 class LessonListActivity : AppCompatActivity() {
 
-    lateinit var adapter: LessonListAdapter
+    private lateinit var model: LessonListViewModel
 
     companion object {
         private const val AREA_ID_EXTRA = "AREA_ID_EXTRA"
+        private const val AREA_NAME_EXTRA = "AREA_NAME_EXTRA"
 
         fun startForArea(
                 context: Context,
@@ -22,6 +23,7 @@ class LessonListActivity : AppCompatActivity() {
 
             val intent = Intent(context, LessonListActivity::class.java)
             intent.putExtra(AREA_ID_EXTRA, areaId)
+            intent.putExtra(AREA_NAME_EXTRA, areaId)
 
             context.startActivity(intent)
         }
@@ -32,21 +34,40 @@ class LessonListActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_lesson_list)
 
-        adapter = LessonListAdapter(this)
-        lesson_recycler_view.adapter = adapter
+        val areaId = intent.extras.getString(AREA_ID_EXTRA)
+        val areaName = intent.extras.getString(AREA_NAME_EXTRA)
 
-        setViewModel()
+        model = getViewModel()
+
+        initAdapter()
+        initToolbar(areaName)
+
+        model.showLessonsForArea(areaId)
     }
 
-    private fun setViewModel() {
-        val viewModel =
-                ViewModelProviders
-                        .of(this)
-                        .get(LessonListViewModel::class.java)
+    private fun getViewModel(): LessonListViewModel {
+        return ViewModelProviders
+                .of(this)
+                .get(LessonListViewModel::class.java)
+    }
 
-        viewModel.getLessonsForArea(intent.extras.getString(AREA_ID_EXTRA))
-        viewModel.lessons.observe(
+    private fun initToolbar(areaName: String) {
+        toolbar.title =
+                String.format(
+                        getString(R.string.lesson_title),
+                        areaName)
+    }
+
+    private fun initAdapter() {
+        val adapter = LessonListAdapter(this)
+        list.adapter = adapter
+
+        model.lessons.observe(
                 this,
-                Observer{ adapter.submitList(it) })
+                Observer { adapter.submitList(it) })
+
+        model.networkState.observe(this, Observer {
+            //            adapter.setNetworkState(it)
+        })
     }
 }

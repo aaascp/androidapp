@@ -16,16 +16,6 @@ class LessonListAdapter(
         private val context: Context
 ) : PagedListAdapter<Lesson, LessonListAdapter.ViewHolder>(DIFF_CALLBACK) {
 
-    companion object {
-        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Lesson>() {
-            override fun areContentsTheSame(oldItem: Lesson, newItem: Lesson): Boolean =
-                    oldItem == newItem
-
-            override fun areItemsTheSame(oldItem: Lesson, newItem: Lesson): Boolean =
-                    oldItem.id == newItem.id
-        }
-    }
-
     override fun onCreateViewHolder(
             parent: ViewGroup, viewType: Int
     ): LessonListAdapter.ViewHolder {
@@ -55,5 +45,15 @@ class LessonListAdapter(
         val count: TextView = itemView.lesson_item_count
         val id: TextView = itemView.lesson_item_id
         val title: TextView = itemView.lesson_item_title
+    }
+
+    companion object {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Lesson>() {
+            override fun areContentsTheSame(oldItem: Lesson, newItem: Lesson): Boolean =
+                    oldItem == newItem
+
+            override fun areItemsTheSame(oldItem: Lesson, newItem: Lesson): Boolean =
+                    oldItem.id == newItem.id
+        }
     }
 }

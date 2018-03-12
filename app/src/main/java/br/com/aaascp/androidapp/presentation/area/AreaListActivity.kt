@@ -10,25 +10,28 @@ import android.arch.lifecycle.ViewModelProviders
 
 class AreaListActivity : AppCompatActivity() {
 
-    private lateinit var adapter: AreaListAdapter
+    private lateinit var model: AreaListViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(R.layout.activity_area_list)
 
-        adapter = AreaListAdapter(this)
-        area_recycler_view.adapter = adapter
-        setViewModel()
+        model = getViewModel()
+        initAdapter()
     }
 
-    private fun setViewModel() {
-        val viewModel =
-                ViewModelProviders
+    private fun getViewModel(): AreaListViewModel {
+        return ViewModelProviders
                         .of(this)
                         .get(AreaListViewModel::class.java)
+    }
 
-        viewModel.areas.observe(
+    private fun initAdapter() {
+        val adapter = AreaListAdapter(this)
+        list.adapter = adapter
+
+        model.areas.observe(
                 this,
                 Observer {
                     it?.let {
