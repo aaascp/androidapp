@@ -18,20 +18,18 @@ import java.util.concurrent.*
 import javax.inject.Singleton
 
 @Module
-class DatabaseModule(application: Application) {
+open class DatabaseModule(application: Application) {
 
     private val database: RoomDatabase
 
-    companion object {
-        const val DATABASE_NAME = "app-db.db"
-    }
+    protected open fun name() = "app-db.db"
 
     init {
         database =
                 Room.databaseBuilder(
                         application,
                         RoomDatabase::class.java,
-                        DATABASE_NAME
+                        name()
                 ).fallbackToDestructiveMigration()
                         .build()
     }

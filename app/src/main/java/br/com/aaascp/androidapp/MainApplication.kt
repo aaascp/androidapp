@@ -6,7 +6,7 @@ import br.com.aaascp.androidapp.di.DaggerAppComponent
 import br.com.aaascp.androidapp.di.module.ApplicationModule
 import br.com.aaascp.androidapp.di.module.infra.DatabaseModule
 
-class MainApplication : Application() {
+open class MainApplication : Application() {
 
     companion object {
         lateinit var component: AppComponent
@@ -17,7 +17,7 @@ class MainApplication : Application() {
         initDagger()
     }
 
-    private fun initDagger() {
+    protected open fun initDagger() {
         component = DaggerAppComponent
                 .builder()
                 .applicationModule(ApplicationModule(this))

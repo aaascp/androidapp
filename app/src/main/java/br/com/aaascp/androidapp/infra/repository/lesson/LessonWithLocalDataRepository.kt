@@ -33,7 +33,7 @@ class LessonWithLocalDataRepository @Inject constructor(
         val builder =
                 LivePagedListBuilder(
                         dataSourceFactory,
-                        LessonEndpoint.NETWORK_PAGE_SIZE)
+                        3)
                         .setBoundaryCallback(boundaryCallback)
 
         val refreshTrigger = MutableLiveData<Unit>()

@@ -10,7 +10,7 @@ import br.com.aaascp.androidapp.infra.source.local.entity.Lesson
 @Dao
 interface LessonRoomDao : LessonLocalDataSource {
 
-    @Query("SELECT * FROM Lesson WHERE areaId = :areaId")
+    @Query("SELECT * FROM Lesson WHERE areaId = :areaId ORDER BY indexInResponse ASC")
     override fun getForArea(areaId: String): DataSource.Factory<Int, Lesson>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

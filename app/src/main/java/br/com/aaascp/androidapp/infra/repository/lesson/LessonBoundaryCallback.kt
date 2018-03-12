@@ -2,6 +2,7 @@ package br.com.aaascp.androidapp.infra.repository.lesson
 
 import android.arch.paging.PagedList
 import android.arch.paging.PagingRequestHelper
+import android.support.annotation.MainThread
 import br.com.aaascp.androidapp.MainApplication
 import br.com.aaascp.androidapp.infra.adapter.LessonAdapter
 import br.com.aaascp.androidapp.infra.repository.RepositoryCallbackBase
@@ -21,6 +22,7 @@ class LessonBoundaryCallback(
     val helper = MainApplication.component.getPagingRequestHelper()
     val networkState = helper.createStatusLiveData()
 
+    @MainThread
     override fun onZeroItemsLoaded() {
         helper.runIfNotRunning(PagingRequestHelper.RequestType.INITIAL) {
             endpoint.getForArea(filter)
@@ -28,6 +30,7 @@ class LessonBoundaryCallback(
         }
     }
 
+    @MainThread
     override fun onItemAtEndLoaded(itemAtEnd: Lesson) {
         helper.runIfNotRunning(PagingRequestHelper.RequestType.AFTER) {
             endpoint.getForArea(

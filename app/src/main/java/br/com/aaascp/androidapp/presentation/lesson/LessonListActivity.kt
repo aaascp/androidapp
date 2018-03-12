@@ -19,11 +19,12 @@ class LessonListActivity : AppCompatActivity() {
 
         fun startForArea(
                 context: Context,
-                areaId: String) {
+                areaId: String,
+                areaTitle: String) {
 
             val intent = Intent(context, LessonListActivity::class.java)
             intent.putExtra(AREA_ID_EXTRA, areaId)
-            intent.putExtra(AREA_NAME_EXTRA, areaId)
+            intent.putExtra(AREA_NAME_EXTRA, areaTitle)
 
             context.startActivity(intent)
         }
@@ -35,12 +36,12 @@ class LessonListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_lesson_list)
 
         val areaId = intent.extras.getString(AREA_ID_EXTRA)
-        val areaName = intent.extras.getString(AREA_NAME_EXTRA)
+        val areaTitle = intent.extras.getString(AREA_NAME_EXTRA)
 
         model = getViewModel()
 
         initAdapter()
-        initToolbar(areaName)
+        initToolbar(areaTitle)
 
         model.showLessonsForArea(areaId)
     }
@@ -51,11 +52,11 @@ class LessonListActivity : AppCompatActivity() {
                 .get(LessonListViewModel::class.java)
     }
 
-    private fun initToolbar(areaName: String) {
+    private fun initToolbar(areaTitle: String) {
         toolbar.title =
                 String.format(
                         getString(R.string.lesson_title),
-                        areaName)
+                        areaTitle)
     }
 
     private fun initAdapter() {
@@ -64,7 +65,9 @@ class LessonListActivity : AppCompatActivity() {
 
         model.lessons.observe(
                 this,
-                Observer { adapter.submitList(it) })
+                Observer {
+                    adapter.submitList(it)
+                })
 
         model.networkState.observe(this, Observer {
             //            adapter.setNetworkState(it)

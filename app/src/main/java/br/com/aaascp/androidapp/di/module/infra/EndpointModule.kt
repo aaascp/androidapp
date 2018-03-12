@@ -11,7 +11,7 @@ import javax.inject.Singleton
 
 
 @Module
-class EndpointModule {
+open class EndpointModule {
 
     @Singleton
     @Provides
@@ -21,13 +21,13 @@ class EndpointModule {
 
     @Singleton
     @Provides
-    fun providesAreaEndpoint(): AreaEndpoint {
+    open fun providesAreaEndpoint(): AreaEndpoint {
         return ServiceGenerator.createService(AreaEndpoint::class.java)
     }
 
     @Singleton
     @Provides
-    fun providesLessonEndpoint(): LessonEndpoint {
+    open fun providesLessonEndpoint(): LessonEndpoint {
         return ServiceGenerator.createService(LessonEndpoint::class.java)
     }
 }

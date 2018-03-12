@@ -36,7 +36,7 @@ class AreaListAdapter(
             it.id.text = area.id
             it.title.text = area.title
             it.root.setOnClickListener {
-                LessonListActivity.startForArea(context, area.id)
+                LessonListActivity.startForArea(context, area.id, area.title)
             }
         }
     }
