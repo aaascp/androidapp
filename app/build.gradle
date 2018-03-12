@@ -22,11 +22,28 @@ android {
             }
         }
 
+        buildConfigField "String", "API_URL", "\"http://backend-alpha.biologiatotal.com.br\""
+
     }
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "default"
+    productFlavors {
+        production {
+            resValue "string", "app_name", "Biologia Total"
+
+            multiDexEnabled false
+        }
+        development {
+            resValue "string", "app_name", "Biologia Total Development"
+
+            multiDexEnabled true
+            applicationIdSuffix = ".development"
         }
     }
 }

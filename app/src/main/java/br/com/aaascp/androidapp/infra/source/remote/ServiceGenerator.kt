@@ -1,5 +1,6 @@
 package br.com.aaascp.androidapp.infra.source.remote
 
+import br.com.aaascp.androidapp.BuildConfig
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit;
@@ -7,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object ServiceGenerator {
 
-    private val BASE_URL = "http://backend-alpha.biologiatotal.com.br"
+    private const val BASE_URL = BuildConfig.API_URL
 
     private val builder = Retrofit.Builder()
             .baseUrl(BASE_URL)

@@ -1,6 +1,4 @@
 <resources>
-    <string name="app_name">AndroidApp</string>
-
     <string name="areas_title">Areas de Estudo</string>
     <string name="lesson_title">Area: %1$s</string>
 </resources>
