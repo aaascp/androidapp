@@ -22,20 +22,20 @@ class LessonListViewModel : ViewModel() {
     }
 
     private val areaId = MutableLiveData<String>()
-    private val repoResult = map(areaId, {
+    private val repositoryResult = map(areaId, {
         repository.getForArea(it)
     })
 
-    val lessons = switchMap(repoResult, { it.pagedList })!!
-    val networkState = switchMap(repoResult, { it.networkState })!!
-    val refreshState = switchMap(repoResult, { it.refreshState })!!
+    val lessons = switchMap(repositoryResult, { it.pagedList })
+    val networkState = switchMap(repositoryResult, { it.networkState })
+    val refreshState = switchMap(repositoryResult, { it.refreshState })
 
     fun refresh() {
-        repoResult.value?.refresh?.invoke()
+        repositoryResult.value?.refresh?.invoke()
     }
 
     fun retry() {
-        val listing = repoResult?.value
+        val listing = repositoryResult?.value
         listing?.retry?.invoke()
     }
 }

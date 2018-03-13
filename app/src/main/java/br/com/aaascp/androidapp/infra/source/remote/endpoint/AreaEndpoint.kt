@@ -7,6 +7,10 @@ import retrofit2.http.Query
 
 interface AreaEndpoint {
 
+    companion object {
+        const val NETWORK_PAGE_SIZE: Int = 25
+    }
+
     @GET("/v2/admin/areas")
     fun getAll(
             @Query("start") start: Int  = 0,

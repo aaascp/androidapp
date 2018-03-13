@@ -35,8 +35,12 @@ class AreaListActivity : AppCompatActivity() {
                 this,
                 Observer {
                     it?.let {
-                        adapter.setAreaList(it)
+                        adapter.submitList(it)
                     }
                 })
+
+        model.networkState.observe(this, Observer {
+            //            adapter.setNetworkState(it)
+        })
     }
 }
