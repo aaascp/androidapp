@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/area_item_root"
+    android:id="@+id/areaItemRoot"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?attr/selectableItemBackground"
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/area_item_count"
+        android:id="@+id/areaItemCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -17,7 +17,7 @@
 
 
     <TextView
-        android:id="@+id/area_item_id"
+        android:id="@+id/areaItemId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="8dp"
@@ -25,7 +25,7 @@
         tools:text="1234" />
 
     <TextView
-        android:id="@+id/area_item_title"
+        android:id="@+id/areaItemTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"

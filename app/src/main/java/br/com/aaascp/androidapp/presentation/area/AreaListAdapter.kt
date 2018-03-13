@@ -4,14 +4,12 @@ import android.arch.paging.PagedListAdapter
 import android.content.Context
 import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.RecyclerView.Adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import br.com.aaascp.androidapp.R
 import br.com.aaascp.androidapp.infra.source.local.entity.Area
-import br.com.aaascp.androidapp.infra.source.local.entity.Lesson
 import br.com.aaascp.androidapp.presentation.lesson.LessonListActivity
 import kotlinx.android.synthetic.main.row_area_item.view.*
 
@@ -49,10 +47,10 @@ class AreaListAdapter(
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val root: View = itemView.area_item_root
-        val count: TextView = itemView.area_item_count
-        val id: TextView = itemView.area_item_id
-        val title: TextView = itemView.area_item_title
+        val root: View = itemView.areaItemRoot
+        val count: TextView = itemView.areaItemCount
+        val id: TextView = itemView.areaItemId
+        val title: TextView = itemView.areaItemTitle
     }
 
     companion object {

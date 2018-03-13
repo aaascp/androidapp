@@ -1,4 +1,5 @@
 <resources>
     <string name="areas_title">Areas de Estudo</string>
     <string name="lesson_title">Area: %1$s</string>
+    <string name="last_update">Ultima atualizacao: %1$s</string>
 </resources>

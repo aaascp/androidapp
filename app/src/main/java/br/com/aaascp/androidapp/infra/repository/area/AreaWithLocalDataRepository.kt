@@ -4,6 +4,7 @@ import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.Transformations
 import android.arch.paging.LivePagedListBuilder
+import android.database.DatabaseUtils
 import br.com.aaascp.androidapp.infra.adapter.AreaAdapter
 import br.com.aaascp.androidapp.infra.repository.Listing
 import br.com.aaascp.androidapp.infra.repository.NetworkState
@@ -11,6 +12,7 @@ import br.com.aaascp.androidapp.infra.repository.RepositoryCallbackBase
 import br.com.aaascp.androidapp.infra.source.local.AppDatabase
 import br.com.aaascp.androidapp.infra.source.local.entity.Area
 import br.com.aaascp.androidapp.infra.source.remote.endpoint.AreaEndpoint
+import br.com.aaascp.androidapp.util.TableUtils
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -53,7 +55,6 @@ class AreaWithLocalDataRepository @Inject constructor(
     }
 
     private fun insertResultIntoDb(areas: List<Area>?) {
-
         areas?.let {
             db.runInTransaction {
                 val start = db.areaDao().getNextIndex()
@@ -64,6 +65,8 @@ class AreaWithLocalDataRepository @Inject constructor(
                 db.areaDao().save(items)
             }
         }
+
+        TableUtils().setAreaTableLastUpdate()
     }
 
     private fun refresh(): LiveData<NetworkState> {
