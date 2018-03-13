@@ -12,7 +12,7 @@ class AreaMockEndpoint : AreaEndpoint {
     ): Call<AreaResponse> {
 
         return CallMock<AreaResponse>(
-                Response.success(FakeData().areas),
+                Response.success(FakeData().getAreas(start,end)),
                 AndroidUtils().isOnline())
     }
 

@@ -1,0 +1,104 @@
+{
+  "data": [
+    {
+      "updatedAt": "2018-03-12T11:58:34.412Z",
+      "createdAt": "2018-03-12T11:58:34.412Z",
+      "title": "Anatomia Humana Superior",
+      "description": "",
+      "color": "#44BAEC",
+      "slug": "anatomia-humana-superior",
+      "subject": {
+        "updatedAt": "2018-03-12T11:58:33.983Z",
+        "createdAt": "2018-03-12T11:58:33.983Z",
+        "title": "Biologia",
+        "slug": "biologia",
+        "__v": 0,
+        "id": "5aa66b697a83a005ac78cd55"
+      },
+      "level": "5aa66b697a83a005ac78cd59",
+      "id_old": 41,
+      "__v": 0,
+      "id": "5aa66b6a7a83a005ac78ce7a"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:34.407Z",
+      "createdAt": "2018-03-12T11:58:34.407Z",
+      "title": "Atualidades",
+      "description": "",
+      "color": "#81422D",
+      "slug": "atualidades-2016",
+      "subject": {
+        "updatedAt": "2018-03-12T11:58:33.983Z",
+        "createdAt": "2018-03-12T11:58:33.983Z",
+        "title": "Biologia",
+        "slug": "biologia",
+        "__v": 0,
+        "id": "5aa66b697a83a005ac78cd55"
+      },
+      "level": "5aa66b697a83a005ac78cd58",
+      "id_old": 25,
+      "__v": 0,
+      "id": "5aa66b6a7a83a005ac78ce6c"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:34.393Z",
+      "createdAt": "2018-03-12T11:58:34.393Z",
+      "title": "Atualidades 2015",
+      "description": "",
+      "color": "#8E75FE",
+      "slug": "atualidades",
+      "subject": {
+        "updatedAt": "2018-03-12T11:58:33.983Z",
+        "createdAt": "2018-03-12T11:58:33.983Z",
+        "title": "Biologia",
+        "slug": "biologia",
+        "__v": 0,
+        "id": "5aa66b697a83a005ac78cd55"
+      },
+      "level": "5aa66b697a83a005ac78cd58",
+      "id_old": 4,
+      "__v": 0,
+      "id": "5aa66b6a7a83a005ac78ce57"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:34.407Z",
+      "createdAt": "2018-03-12T11:58:34.407Z",
+      "title": "Aulões",
+      "description": "",
+      "color": "#3E50B4",
+      "slug": "auloes",
+      "subject": {
+        "updatedAt": "2018-03-12T11:58:33.983Z",
+        "createdAt": "2018-03-12T11:58:33.983Z",
+        "title": "Biologia",
+        "slug": "biologia",
+        "__v": 0,
+        "id": "5aa66b697a83a005ac78cd55"
+      },
+      "level": "5aa66b697a83a005ac78cd58",
+      "id_old": 26,
+      "__v": 0,
+      "id": "5aa66b6a7a83a005ac78ce6d"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:34.413Z",
+      "createdAt": "2018-03-12T11:58:34.413Z",
+      "title": "Bioenergética",
+      "description": "",
+      "color": "#EB9E25",
+      "slug": "bioenergetica",
+      "subject": {
+        "updatedAt": "2018-03-12T11:58:33.983Z",
+        "createdAt": "2018-03-12T11:58:33.983Z",
+        "title": "Biologia",
+        "slug": "biologia",
+        "__v": 0,
+        "id": "5aa66b697a83a005ac78cd55"
+      },
+      "level": "5aa66b697a83a005ac78cd58",
+      "id_old": 45,
+      "__v": 0,
+      "id": "5aa66b6a7a83a005ac78ce7d"
+    }
+  ]
+}

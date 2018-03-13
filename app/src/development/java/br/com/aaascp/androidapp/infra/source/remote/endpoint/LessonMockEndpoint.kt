@@ -1,12 +1,12 @@
 package br.com.aaascp.androidapp.infra.source.remote.endpoint
 
 import br.com.aaascp.androidapp.infra.source.remote.body.LessonResponse
-import br.com.aaascp.androidapp.util.AndroidUtils
 import retrofit2.Call
-import retrofit2.Response
+import retrofit2.mock.BehaviorDelegate
 
-
-class LessonMockEndpoint : LessonEndpoint {
+class LessonMockEndpoint(
+        private val delegate: BehaviorDelegate<LessonEndpoint>
+) : LessonEndpoint {
 
     companion object {
         const val NETWORK_PAGE_SIZE: Int = 5
@@ -18,8 +18,10 @@ class LessonMockEndpoint : LessonEndpoint {
             end: Int
     ): Call<LessonResponse> {
 
-        return CallMock<LessonResponse>(
-                Response.success(FakeData().getLessons(start,end)),
-                AndroidUtils().isOnline())
+        val data = FakeData().getLessonsForArea("1", start, end)
+
+        return delegate
+                .returningResponse(data)
+                .getForArea(lessonFilterRequestBody)
     }
 }

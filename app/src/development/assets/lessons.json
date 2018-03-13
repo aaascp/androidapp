@@ -1,0 +1,1207 @@
+{
+  "data": [
+    {
+      "updatedAt": "2018-03-12T11:58:36.080Z",
+      "createdAt": "2018-03-12T11:58:36.080Z",
+      "title": "Respiração Aeróbia: Cadeia Respiratória",
+      "slug": "respiracao-aerobia-cadeia-respiratoria",
+      "video_player": "youtube",
+      "youtube_token": "Fm2Ydd2ArT0",
+      "area": {
+        "updatedAt": "2018-03-12T11:58:34.413Z",
+        "createdAt": "2018-03-12T11:58:34.413Z",
+        "title": "Bioenergética",
+        "description": "",
+        "color": "#EB9E25",
+        "slug": "bioenergetica",
+        "subject": "5aa66b697a83a005ac78cd55",
+        "level": "5aa66b697a83a005ac78cd58",
+        "id_old": 45,
+        "__v": 0,
+        "id": "5aa66b6a7a83a005ac78ce7d"
+      },
+      "id_old": 36,
+      "description": "",
+      "url_shortened": "http://bit.ly/2eIrPxW",
+      "__v": 0,
+      "subtitles": false,
+      "timeline": [],
+      "tags": [
+        "glicólise",
+        "ciclo de Krebs",
+        "cadeia respiratória",
+        "prótons",
+        "NAD",
+        "FAD",
+        "ATP",
+        "NADH2",
+        "FADH",
+        "piruvato",
+        "glicose",
+        "elétrons",
+        "ATP sintetase",
+        "bomba de H+",
+        "mitocôndria",
+        "matriz mitocondrial",
+        "metabolismo"
+      ],
+      "paid": true,
+      "to_display": false,
+      "id": "5aa66b6a7a83a005ac78cf40"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:36.083Z",
+      "createdAt": "2018-03-12T11:58:36.083Z",
+      "title": "Angelina Jolie e Câncer de Mama",
+      "slug": "angelina-jolie-e-cancer-de-mama",
+      "video_player": "youtube",
+      "youtube_token": "SSAQtvSeyd4",
+      "area": {
+        "updatedAt": "2018-03-12T11:58:34.393Z",
+        "createdAt": "2018-03-12T11:58:34.393Z",
+        "title": "Atualidades 2015",
+        "description": "",
+        "color": "#8E75FE",
+        "slug": "atualidades",
+        "subject": "5aa66b697a83a005ac78cd55",
+        "level": "5aa66b697a83a005ac78cd58",
+        "id_old": 4,
+        "__v": 0,
+        "id": "5aa66b6a7a83a005ac78ce57"
+      },
+      "id_old": 47,
+      "description": "",
+      "__v": 0,
+      "subtitles": false,
+      "timeline": [],
+      "tags": [],
+      "paid": true,
+      "to_display": false,
+      "id": "5aa66b6a7a83a005ac78cf4d"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:36.136Z",
+      "createdAt": "2018-03-12T11:58:36.136Z",
+      "title": "Atualidades: Abril 2015",
+      "slug": "atualidades-abril-2015",
+      "video_player": "sambatech",
+      "vimeo_token": "127291353",
+      "sambatech_token": "e155b626e8c1f52a7ef6620c13e7ee6f",
+      "area": {
+        "updatedAt": "2018-03-12T11:58:34.393Z",
+        "createdAt": "2018-03-12T11:58:34.393Z",
+        "title": "Atualidades 2015",
+        "description": "",
+        "color": "#8E75FE",
+        "slug": "atualidades",
+        "subject": "5aa66b697a83a005ac78cd55",
+        "level": "5aa66b697a83a005ac78cd58",
+        "id_old": 4,
+        "__v": 0,
+        "id": "5aa66b6a7a83a005ac78ce57"
+      },
+      "id_old": 218,
+      "description": "",
+      "__v": 0,
+      "subtitles": false,
+      "timeline": [],
+      "tags": [
+        "nutrição",
+        "plantas",
+        "solos pobres",
+        "edição DNA",
+        "genoma",
+        "embrião",
+        "Santos",
+        "combustíveis",
+        "chuva ácida",
+        "desastre ambiental",
+        "incêndio"
+      ],
+      "paid": true,
+      "to_display": true,
+      "id": "5aa66b6a7a83a005ac78d133"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:36.084Z",
+      "createdAt": "2018-03-12T11:58:36.084Z",
+      "title": "Atualidades: Fevereiro 2015",
+      "slug": "atualidades-fevereiro-2015",
+      "video_player": "sambatech",
+      "vimeo_token": "121542144",
+      "sambatech_token": "b69abf613faef8458ed6b6f347b57b74",
+      "area": {
+        "updatedAt": "2018-03-12T11:58:34.393Z",
+        "createdAt": "2018-03-12T11:58:34.393Z",
+        "title": "Atualidades 2015",
+        "description": "",
+        "color": "#8E75FE",
+        "slug": "atualidades",
+        "subject": "5aa66b697a83a005ac78cd55",
+        "level": "5aa66b697a83a005ac78cd58",
+        "id_old": 4,
+        "__v": 0,
+        "id": "5aa66b6a7a83a005ac78ce57"
+      },
+      "id_old": 51,
+      "description": "",
+      "__v": 0,
+      "subtitles": false,
+      "timeline": [],
+      "tags": [],
+      "paid": true,
+      "to_display": true,
+      "id": "5aa66b6a7a83a005ac78cf51"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:36.084Z",
+      "createdAt": "2018-03-12T11:58:36.084Z",
+      "title": "Atualidades: Janeiro 2015",
+      "slug": "atualidades-janeiro-2015",
+      "video_player": "sambatech",
+      "vimeo_token": "118987615",
+      "sambatech_token": "d9b3c4fc3a49d5b8c1a5e3e141430e1b",
+      "area": {
+        "updatedAt": "2018-03-12T11:58:34.393Z",
+        "createdAt": "2018-03-12T11:58:34.393Z",
+        "title": "Atualidades 2015",
+        "description": "",
+        "color": "#8E75FE",
+        "slug": "atualidades",
+        "subject": "5aa66b697a83a005ac78cd55",
+        "level": "5aa66b697a83a005ac78cd58",
+        "id_old": 4,
+        "__v": 0,
+        "id": "5aa66b6a7a83a005ac78ce57"
+      },
+      "id_old": 50,
+      "description": "",
+      "__v": 0,
+      "subtitles": false,
+      "timeline": [],
+      "tags": [],
+      "paid": true,
+      "to_display": true,
+      "id": "5aa66b6a7a83a005ac78cf50"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:36.139Z",
+      "createdAt": "2018-03-12T11:58:36.139Z",
+      "title": "Atualidades: Junho 2015",
+      "slug": "atualidades-junho-2015",
+      "video_player": "sambatech",
+      "vimeo_token": "133701890",
+      "sambatech_token": "c08a97119cfa7e7de2933b2a24969c3f",
+      "area": {
+        "updatedAt": "2018-03-12T11:58:34.393Z",
+        "createdAt": "2018-03-12T11:58:34.393Z",
+        "title": "Atualidades 2015",
+        "description": "",
+        "color": "#8E75FE",
+        "slug": "atualidades",
+        "subject": "5aa66b697a83a005ac78cd55",
+        "level": "5aa66b697a83a005ac78cd58",
+        "id_old": 4,
+        "__v": 0,
+        "id": "5aa66b6a7a83a005ac78ce57"
+      },
+      "id_old": 231,
+      "description": "",
+      "__v": 0,
+      "subtitles": false,
+      "timeline": [],
+      "tags": [],
+      "paid": true,
+      "to_display": true,
+      "id": "5aa66b6a7a83a005ac78d145"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:36.139Z",
+      "createdAt": "2018-03-12T11:58:36.139Z",
+      "title": "Atualidades: Maio 2015",
+      "slug": "atualidades-maio-2015",
+      "video_player": "sambatech",
+      "vimeo_token": "130620025",
+      "sambatech_token": "aba08ba5f2804750c6cbab665434ed7f",
+      "area": {
+        "updatedAt": "2018-03-12T11:58:34.393Z",
+        "createdAt": "2018-03-12T11:58:34.393Z",
+        "title": "Atualidades 2015",
+        "description": "",
+        "color": "#8E75FE",
+        "slug": "atualidades",
+        "subject": "5aa66b697a83a005ac78cd55",
+        "level": "5aa66b697a83a005ac78cd58",
+        "id_old": 4,
+        "__v": 0,
+        "id": "5aa66b6a7a83a005ac78ce57"
+      },
+      "id_old": 228,
+      "description": "",
+      "__v": 0,
+      "subtitles": false,
+      "timeline": [],
+      "tags": [
+        "partenogênese",
+        "zika vírus",
+        "endotermia"
+      ],
+      "paid": false,
+      "to_display": true,
+      "id": "5aa66b6a7a83a005ac78d144"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:36.134Z",
+      "createdAt": "2018-03-12T11:58:36.134Z",
+      "title": "Atualidades: Março 2015",
+      "slug": "atualidades-marco-2015",
+      "video_player": "sambatech",
+      "vimeo_token": "125351795",
+      "sambatech_token": "f3631f63cc884e5dcdbbc09ba088f278",
+      "area": {
+        "updatedAt": "2018-03-12T11:58:34.393Z",
+        "createdAt": "2018-03-12T11:58:34.393Z",
+        "title": "Atualidades 2015",
+        "description": "",
+        "color": "#8E75FE",
+        "slug": "atualidades",
+        "subject": "5aa66b697a83a005ac78cd55",
+        "level": "5aa66b697a83a005ac78cd58",
+        "id_old": 4,
+        "__v": 0,
+        "id": "5aa66b6a7a83a005ac78ce57"
+      },
+      "id_old": 214,
+      "description": "",
+      "__v": 0,
+      "subtitles": false,
+      "timeline": [],
+      "tags": [
+        "dengue",
+        "transgênicos",
+        "talassemia",
+        "genética",
+        "enem"
+      ],
+      "paid": true,
+      "to_display": true,
+      "id": "5aa66b6a7a83a005ac78d12f"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:36.084Z",
+      "createdAt": "2018-03-12T11:58:36.084Z",
+      "title": "Como Funciona o Gás Lacrimogêneo",
+      "slug": "como-funciona-o-gas-lacrimogeneo",
+      "video_player": "youtube",
+      "youtube_token": "vkUYLbaQtFA",
+      "area": {
+        "updatedAt": "2018-03-12T11:58:34.393Z",
+        "createdAt": "2018-03-12T11:58:34.393Z",
+        "title": "Atualidades 2015",
+        "description": "",
+        "color": "#8E75FE",
+        "slug": "atualidades",
+        "subject": "5aa66b697a83a005ac78cd55",
+        "level": "5aa66b697a83a005ac78cd58",
+        "id_old": 4,
+        "__v": 0,
+        "id": "5aa66b6a7a83a005ac78ce57"
+      },
+      "id_old": 49,
+      "description": "",
+      "__v": 0,
+      "subtitles": false,
+      "timeline": [],
+      "tags": [],
+      "paid": true,
+      "to_display": false,
+      "id": "5aa66b6a7a83a005ac78cf4f"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:36.082Z",
+      "createdAt": "2018-03-12T11:58:36.082Z",
+      "title": "ENCODE: Enciclopédia do DNA",
+      "slug": "encode-enciclopedia-do-dna",
+      "video_player": "youtube",
+      "youtube_token": "NLd--gKyFXw?rel=0",
+      "area": {
+        "updatedAt": "2018-03-12T11:58:34.393Z",
+        "createdAt": "2018-03-12T11:58:34.393Z",
+        "title": "Atualidades 2015",
+        "description": "",
+        "color": "#8E75FE",
+        "slug": "atualidades",
+        "subject": "5aa66b697a83a005ac78cd55",
+        "level": "5aa66b697a83a005ac78cd58",
+        "id_old": 4,
+        "__v": 0,
+        "id": "5aa66b6a7a83a005ac78ce57"
+      },
+      "id_old": 45,
+      "description": "",
+      "__v": 0,
+      "subtitles": false,
+      "timeline": [],
+      "tags": [],
+      "paid": true,
+      "to_display": true,
+      "id": "5aa66b6a7a83a005ac78cf4b"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:36.083Z",
+      "createdAt": "2018-03-12T11:58:36.083Z",
+      "title": "Tragédia de Santa Maria",
+      "slug": "tragedia-de-santa-maria",
+      "video_player": "sambatech",
+      "vimeo_token": "151827068",
+      "sambatech_token": "0bb505b7a818118acc94b0f11168b883",
+      "area": {
+        "updatedAt": "2018-03-12T11:58:34.393Z",
+        "createdAt": "2018-03-12T11:58:34.393Z",
+        "title": "Atualidades 2015",
+        "description": "",
+        "color": "#8E75FE",
+        "slug": "atualidades",
+        "subject": "5aa66b697a83a005ac78cd55",
+        "level": "5aa66b697a83a005ac78cd58",
+        "id_old": 4,
+        "__v": 0,
+        "id": "5aa66b6a7a83a005ac78ce57"
+      },
+      "id_old": 48,
+      "description": "",
+      "__v": 0,
+      "subtitles": false,
+      "timeline": [],
+      "tags": [],
+      "paid": true,
+      "to_display": false,
+      "id": "5aa66b6a7a83a005ac78cf4e"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:37.639Z",
+      "createdAt": "2018-03-12T11:58:37.639Z",
+      "title": " Nova Função dos Pulmões",
+      "slug": "-nova-funcao-dos-pulmoes",
+      "video_player": "sambatech",
+      "sambatech_token": "dbd4a7b38f02b4582566d623050aa150",
+      "area": {
+        "updatedAt": "2018-03-12T11:58:34.407Z",
+        "createdAt": "2018-03-12T11:58:34.407Z",
+        "title": "Atualidades",
+        "description": "",
+        "color": "#81422D",
+        "slug": "atualidades-2016",
+        "subject": "5aa66b697a83a005ac78cd55",
+        "level": "5aa66b697a83a005ac78cd58",
+        "id_old": 25,
+        "__v": 0,
+        "id": "5aa66b6a7a83a005ac78ce6c"
+      },
+      "id_old": 1372,
+      "description": "",
+      "url_shortened": "http://bit.ly/2pXqvrJ",
+      "__v": 0,
+      "subtitles": false,
+      "timeline": [
+        {
+          "text": "Sangue Arterial",
+          "seconds": 72,
+          "_id": "5aa66b6b7a83a005ac78d8d1"
+        },
+        {
+          "text": "Sangue Venoso",
+          "seconds": 79,
+          "_id": "5aa66b6b7a83a005ac78d8d0"
+        },
+        {
+          "text": "Pequena Circulação",
+          "seconds": 106,
+          "_id": "5aa66b6b7a83a005ac78d8cf"
+        },
+        {
+          "text": "Grande Circulação",
+          "seconds": 112,
+          "_id": "5aa66b6b7a83a005ac78d8ce"
+        },
+        {
+          "text": "Composição do Sangue",
+          "seconds": 212,
+          "_id": "5aa66b6b7a83a005ac78d8cd"
+        },
+        {
+          "text": "Exercícios",
+          "seconds": 310,
+          "_id": "5aa66b6b7a83a005ac78d8cc"
+        }
+      ],
+      "tags": [],
+      "paid": true,
+      "to_display": true,
+      "id": "5aa66b6b7a83a005ac78d8cb"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:37.644Z",
+      "createdAt": "2018-03-12T11:58:37.644Z",
+      "title": "A Importância do Apêndice ",
+      "slug": "a-importancia-do-apendice-",
+      "video_player": "sambatech",
+      "sambatech_token": "8455e4df54cf1684f78a9abaf5aabd43",
+      "area": {
+        "updatedAt": "2018-03-12T11:58:34.407Z",
+        "createdAt": "2018-03-12T11:58:34.407Z",
+        "title": "Atualidades",
+        "description": "",
+        "color": "#81422D",
+        "slug": "atualidades-2016",
+        "subject": "5aa66b697a83a005ac78cd55",
+        "level": "5aa66b697a83a005ac78cd58",
+        "id_old": 25,
+        "__v": 0,
+        "id": "5aa66b6a7a83a005ac78ce6c"
+      },
+      "id_old": 1428,
+      "description": "",
+      "url_shortened": "http://bit.ly/2re7eTG",
+      "__v": 0,
+      "subtitles": false,
+      "timeline": [
+        {
+          "text": "Crossing Over",
+          "seconds": 50,
+          "_id": "5aa66b6b7a83a005ac78d93a"
+        },
+        {
+          "text": "O Apêndice",
+          "seconds": 150,
+          "_id": "5aa66b6b7a83a005ac78d939"
+        },
+        {
+          "text": "Exercícios",
+          "seconds": 270,
+          "_id": "5aa66b6b7a83a005ac78d938"
+        }
+      ],
+      "tags": [
+        "apêndice",
+        "crossing-over",
+        "gametas",
+        "evolução",
+        "órgão"
+      ],
+      "paid": true,
+      "to_display": true,
+      "id": "5aa66b6b7a83a005ac78d937"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:37.033Z",
+      "createdAt": "2018-03-12T11:58:37.033Z",
+      "title": "Aspectos biológicos da pobreza e do saneamento básico",
+      "slug": "aspectos-biologicos-da-pobreza-e-do-saneamento-basico",
+      "video_player": "sambatech",
+      "sambatech_token": "14c0584527208c01886413e24c9a128b",
+      "area": {
+        "updatedAt": "2018-03-12T11:58:34.407Z",
+        "createdAt": "2018-03-12T11:58:34.407Z",
+        "title": "Atualidades",
+        "description": "",
+        "color": "#81422D",
+        "slug": "atualidades-2016",
+        "subject": "5aa66b697a83a005ac78cd55",
+        "level": "5aa66b697a83a005ac78cd58",
+        "id_old": 25,
+        "__v": 0,
+        "id": "5aa66b6a7a83a005ac78ce6c"
+      },
+      "id_old": 2113,
+      "description": "",
+      "url_shortened": "http://bit.ly/2huIzXT",
+      "__v": 0,
+      "subtitles": false,
+      "timeline": [],
+      "tags": [],
+      "paid": true,
+      "to_display": true,
+      "id": "5aa66b6b7a83a005ac78defe"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:37.014Z",
+      "createdAt": "2018-03-12T11:58:37.014Z",
+      "title": "Aspectos biológicos do desenvolvimento sustentável",
+      "slug": "aspectos-biologicos-do-desenvolvimento-sustentavel",
+      "video_player": "sambatech",
+      "sambatech_token": "a6b9574abd25e17661b0176cbc652ec1",
+      "area": {
+        "updatedAt": "2018-03-12T11:58:34.407Z",
+        "createdAt": "2018-03-12T11:58:34.407Z",
+        "title": "Atualidades",
+        "description": "",
+        "color": "#81422D",
+        "slug": "atualidades-2016",
+        "subject": "5aa66b697a83a005ac78cd55",
+        "level": "5aa66b697a83a005ac78cd58",
+        "id_old": 25,
+        "__v": 0,
+        "id": "5aa66b6a7a83a005ac78ce6c"
+      },
+      "id_old": 2036,
+      "description": "",
+      "url_shortened": "http://bit.ly/2yNhZRu",
+      "__v": 0,
+      "subtitles": false,
+      "timeline": [],
+      "tags": [],
+      "paid": true,
+      "to_display": true,
+      "id": "5aa66b6b7a83a005ac78de87"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:36.969Z",
+      "createdAt": "2018-03-12T11:58:36.969Z",
+      "title": "Atualidades de Biologia 2017",
+      "slug": "atualidades-2017",
+      "video_player": "sambatech",
+      "sambatech_token": "9b128d2a5d71e4b841bd4b82d07d2189",
+      "area": {
+        "updatedAt": "2018-03-12T11:58:34.407Z",
+        "createdAt": "2018-03-12T11:58:34.407Z",
+        "title": "Atualidades",
+        "description": "",
+        "color": "#81422D",
+        "slug": "atualidades-2016",
+        "subject": "5aa66b697a83a005ac78cd55",
+        "level": "5aa66b697a83a005ac78cd58",
+        "id_old": 25,
+        "__v": 0,
+        "id": "5aa66b6a7a83a005ac78ce6c"
+      },
+      "id_old": 1854,
+      "description": "",
+      "url_shortened": "http://bit.ly/2xw1ewI",
+      "__v": 0,
+      "subtitles": false,
+      "timeline": [],
+      "tags": [],
+      "paid": true,
+      "to_display": true,
+      "id": "5aa66b6b7a83a005ac78dd99"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:36.879Z",
+      "createdAt": "2018-03-12T11:58:36.879Z",
+      "title": "Aulão Desmatamento ",
+      "slug": "aulao-desmatamento-atualidades",
+      "video_player": "sambatech",
+      "sambatech_token": "240962bdaac2e127724fd26cf58fcba4",
+      "area": {
+        "updatedAt": "2018-03-12T11:58:34.407Z",
+        "createdAt": "2018-03-12T11:58:34.407Z",
+        "title": "Atualidades",
+        "description": "",
+        "color": "#81422D",
+        "slug": "atualidades-2016",
+        "subject": "5aa66b697a83a005ac78cd55",
+        "level": "5aa66b697a83a005ac78cd58",
+        "id_old": 25,
+        "__v": 0,
+        "id": "5aa66b6a7a83a005ac78ce6c"
+      },
+      "id_old": 1589,
+      "description": "",
+      "url_shortened": "http://bit.ly/2hjFqfY",
+      "__v": 0,
+      "subtitles": false,
+      "timeline": [],
+      "tags": [],
+      "paid": true,
+      "to_display": true,
+      "id": "5aa66b6b7a83a005ac78dafb"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:37.664Z",
+      "createdAt": "2018-03-12T11:58:37.664Z",
+      "title": "Branqueamento dos Corais",
+      "slug": "branqueamento-dos-corais",
+      "video_player": "sambatech",
+      "sambatech_token": "862181c9e85ec7b64dace763e69fa2f1",
+      "area": {
+        "updatedAt": "2018-03-12T11:58:34.407Z",
+        "createdAt": "2018-03-12T11:58:34.407Z",
+        "title": "Atualidades",
+        "description": "",
+        "color": "#81422D",
+        "slug": "atualidades-2016",
+        "subject": "5aa66b697a83a005ac78cd55",
+        "level": "5aa66b697a83a005ac78cd58",
+        "id_old": 25,
+        "__v": 0,
+        "id": "5aa66b6a7a83a005ac78ce6c"
+      },
+      "id_old": 1549,
+      "description": "",
+      "url_shortened": "http://bit.ly/2tnYmvq",
+      "__v": 0,
+      "subtitles": false,
+      "timeline": [
+        {
+          "text": "Corais",
+          "seconds": 105,
+          "_id": "5aa66b6b7a83a005ac78da90"
+        },
+        {
+          "text": "Algas Zooxantelas",
+          "seconds": 166,
+          "_id": "5aa66b6b7a83a005ac78da8f"
+        },
+        {
+          "text": "O que é o Branqueamento de Corais",
+          "seconds": 203,
+          "_id": "5aa66b6b7a83a005ac78da8e"
+        },
+        {
+          "text": "Exercício",
+          "seconds": 592,
+          "_id": "5aa66b6b7a83a005ac78da8d"
+        },
+        {
+          "text": "Resumo",
+          "seconds": 787,
+          "_id": "5aa66b6b7a83a005ac78da8c"
+        }
+      ],
+      "tags": [
+        "Corais",
+        "Algas Zooxantelas",
+        "O que Causa o Branqueamento de Corais",
+        "Poluição",
+        "Aquecimento Global"
+      ],
+      "paid": true,
+      "to_display": true,
+      "id": "5aa66b6b7a83a005ac78da8b"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:36.873Z",
+      "createdAt": "2018-03-12T11:58:36.873Z",
+      "title": "Como febre amarela pode aparecer no Enem?",
+      "slug": "como-febre-amarela-pode-aparecer-no-enem",
+      "video_player": "sambatech",
+      "sambatech_token": "e0ae56d197310e8ad8e92e6b23e6e0e7",
+      "area": {
+        "updatedAt": "2018-03-12T11:58:34.407Z",
+        "createdAt": "2018-03-12T11:58:34.407Z",
+        "title": "Atualidades",
+        "description": "",
+        "color": "#81422D",
+        "slug": "atualidades-2016",
+        "subject": "5aa66b697a83a005ac78cd55",
+        "level": "5aa66b697a83a005ac78cd58",
+        "id_old": 25,
+        "__v": 0,
+        "id": "5aa66b6a7a83a005ac78ce6c"
+      },
+      "id_old": 1563,
+      "description": "",
+      "url_shortened": "http://bit.ly/2eLVsyj",
+      "__v": 0,
+      "subtitles": false,
+      "timeline": [],
+      "tags": [],
+      "paid": true,
+      "to_display": true,
+      "id": "5aa66b6b7a83a005ac78dabb"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:36.180Z",
+      "createdAt": "2018-03-12T11:58:36.180Z",
+      "title": "Dengue",
+      "slug": "dengue-atualidades",
+      "video_player": "sambatech",
+      "vimeo_token": "136506478",
+      "sambatech_token": "b28fc191867c9b9bfb8835fd0df2dacd",
+      "area": {
+        "updatedAt": "2018-03-12T11:58:34.407Z",
+        "createdAt": "2018-03-12T11:58:34.407Z",
+        "title": "Atualidades",
+        "description": "",
+        "color": "#81422D",
+        "slug": "atualidades-2016",
+        "subject": "5aa66b697a83a005ac78cd55",
+        "level": "5aa66b697a83a005ac78cd58",
+        "id_old": 25,
+        "__v": 0,
+        "id": "5aa66b6a7a83a005ac78ce6c"
+      },
+      "id_old": 368,
+      "description": "",
+      "__v": 0,
+      "subtitles": false,
+      "timeline": [],
+      "tags": [],
+      "paid": true,
+      "to_display": true,
+      "id": "5aa66b6a7a83a005ac78d1e5"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:36.890Z",
+      "createdAt": "2018-03-12T11:58:36.890Z",
+      "title": "Edição do DNA: O novo caminho da Genética",
+      "slug": "edicao-do-dna-o-novo-caminho-da-genetica",
+      "video_player": "sambatech",
+      "sambatech_token": "11c0d77a1c34915d4cc6cd83fe47809b",
+      "area": {
+        "updatedAt": "2018-03-12T11:58:34.407Z",
+        "createdAt": "2018-03-12T11:58:34.407Z",
+        "title": "Atualidades",
+        "description": "",
+        "color": "#81422D",
+        "slug": "atualidades-2016",
+        "subject": "5aa66b697a83a005ac78cd55",
+        "level": "5aa66b697a83a005ac78cd58",
+        "id_old": 25,
+        "__v": 0,
+        "id": "5aa66b6a7a83a005ac78ce6c"
+      },
+      "id_old": 1638,
+      "description": "",
+      "url_shortened": "http://bit.ly/2i6m4eE",
+      "__v": 0,
+      "subtitles": false,
+      "timeline": [],
+      "tags": [],
+      "paid": true,
+      "to_display": true,
+      "id": "5aa66b6b7a83a005ac78db69"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:37.681Z",
+      "createdAt": "2018-03-12T11:58:37.681Z",
+      "title": "Anatomia do Coração",
+      "slug": "anatomia-do-coracao",
+      "video_player": "sambatech",
+      "sambatech_token": "099dac9821446c2fb3c9cb737cfceb56",
+      "area": {
+        "updatedAt": "2018-03-12T11:58:34.412Z",
+        "createdAt": "2018-03-12T11:58:34.412Z",
+        "title": "Anatomia Humana Superior",
+        "description": "",
+        "color": "#44BAEC",
+        "slug": "anatomia-humana-superior",
+        "subject": "5aa66b697a83a005ac78cd55",
+        "level": "5aa66b697a83a005ac78cd59",
+        "id_old": 41,
+        "__v": 0,
+        "id": "5aa66b6a7a83a005ac78ce7a"
+      },
+      "id_old": 1767,
+      "description": "",
+      "url_shortened": "http://bit.ly/2gXHMl2",
+      "__v": 0,
+      "subtitles": false,
+      "timeline": [
+        {
+          "text": "Sistema Cardiovascular",
+          "seconds": 31,
+          "_id": "5aa66b6b7a83a005ac78dc8f"
+        },
+        {
+          "text": "Circulação Sistêmica e Pulmonar",
+          "seconds": 90,
+          "_id": "5aa66b6b7a83a005ac78dc8e"
+        },
+        {
+          "text": "Descrição",
+          "seconds": 160,
+          "_id": "5aa66b6b7a83a005ac78dc8d"
+        },
+        {
+          "text": "Localização do Coração",
+          "seconds": 295,
+          "_id": "5aa66b6b7a83a005ac78dc8c"
+        },
+        {
+          "text": "Impressões Cardíacas Face Pulmonar",
+          "seconds": 527,
+          "_id": "5aa66b6b7a83a005ac78dc8b"
+        },
+        {
+          "text": "Processo Respiratório",
+          "seconds": 575,
+          "_id": "5aa66b6b7a83a005ac78dc8a"
+        },
+        {
+          "text": "Músculo Diafragma",
+          "seconds": 608,
+          "_id": "5aa66b6b7a83a005ac78dc89"
+        },
+        {
+          "text": "Pericárdio Fibroso e Seroso",
+          "seconds": 725,
+          "_id": "5aa66b6b7a83a005ac78dc88"
+        },
+        {
+          "text": "Líquido Pericárdico",
+          "seconds": 907,
+          "_id": "5aa66b6b7a83a005ac78dc87"
+        },
+        {
+          "text": "Vasos da Base",
+          "seconds": 940,
+          "_id": "5aa66b6b7a83a005ac78dc86"
+        },
+        {
+          "text": "Estruturas Internas",
+          "seconds": 1136,
+          "_id": "5aa66b6b7a83a005ac78dc85"
+        },
+        {
+          "text": "Resumo",
+          "seconds": 1461,
+          "_id": "5aa66b6b7a83a005ac78dc84"
+        },
+        {
+          "text": "Questionamento",
+          "seconds": 1618,
+          "_id": "5aa66b6b7a83a005ac78dc83"
+        }
+      ],
+      "tags": [
+        "Sistema Cardiovascular",
+        "Circulação Sistêmica e Pulmonar",
+        "Descrição",
+        "Localização do Coração",
+        "Impressões Cardíacas Face Pulmonar",
+        "Processo Respiratório",
+        "Músculo Diafragma",
+        "Pericárdio Fibroso e Seroso",
+        "Líquido Pericárdico",
+        "Vasos da Base",
+        "Estruturas Internas"
+      ],
+      "paid": true,
+      "to_display": true,
+      "id": "5aa66b6b7a83a005ac78dc82"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:37.672Z",
+      "createdAt": "2018-03-12T11:58:37.672Z",
+      "title": "Articulações Cartilaginosas",
+      "slug": "articulacoes-cartilaginosas",
+      "video_player": "sambatech",
+      "sambatech_token": "be0b97a073179aa974de19ccc9ac9d76",
+      "area": {
+        "updatedAt": "2018-03-12T11:58:34.412Z",
+        "createdAt": "2018-03-12T11:58:34.412Z",
+        "title": "Anatomia Humana Superior",
+        "description": "",
+        "color": "#44BAEC",
+        "slug": "anatomia-humana-superior",
+        "subject": "5aa66b697a83a005ac78cd55",
+        "level": "5aa66b697a83a005ac78cd59",
+        "id_old": 41,
+        "__v": 0,
+        "id": "5aa66b6a7a83a005ac78ce7a"
+      },
+      "id_old": 1637,
+      "description": "",
+      "url_shortened": "http://bit.ly/2i5bnsV",
+      "__v": 0,
+      "subtitles": false,
+      "timeline": [
+        {
+          "text": "Tipos de Articulações",
+          "seconds": 56,
+          "_id": "5aa66b6b7a83a005ac78db68"
+        },
+        {
+          "text": "Regulação Hormonal do Crescimento Ósseo",
+          "seconds": 282,
+          "_id": "5aa66b6b7a83a005ac78db67"
+        },
+        {
+          "text": "Sincondrose e Sínfises",
+          "seconds": 630,
+          "_id": "5aa66b6b7a83a005ac78db66"
+        },
+        {
+          "text": "Hábitos para Prevenir a Hérnia de Disco",
+          "seconds": 1303,
+          "_id": "5aa66b6b7a83a005ac78db65"
+        },
+        {
+          "text": "Questionamento",
+          "seconds": 1422,
+          "_id": "5aa66b6b7a83a005ac78db64"
+        }
+      ],
+      "tags": [
+        "Tipos de Articulações",
+        "Regulação Hormonal do Crescimento Ósseo",
+        "Sincondrose e Sínfises",
+        "Hábitos para Prevenir a Hérnia de Disco"
+      ],
+      "paid": true,
+      "to_display": true,
+      "id": "5aa66b6b7a83a005ac78db63"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:37.673Z",
+      "createdAt": "2018-03-12T11:58:37.673Z",
+      "title": "Articulações Fibrosas",
+      "slug": "articulacoes-fibrosas",
+      "video_player": "sambatech",
+      "sambatech_token": "eac43a0c0c2e1ebd5129643b31babb37",
+      "area": {
+        "updatedAt": "2018-03-12T11:58:34.412Z",
+        "createdAt": "2018-03-12T11:58:34.412Z",
+        "title": "Anatomia Humana Superior",
+        "description": "",
+        "color": "#44BAEC",
+        "slug": "anatomia-humana-superior",
+        "subject": "5aa66b697a83a005ac78cd55",
+        "level": "5aa66b697a83a005ac78cd59",
+        "id_old": 41,
+        "__v": 0,
+        "id": "5aa66b6a7a83a005ac78ce7a"
+      },
+      "id_old": 1647,
+      "description": "",
+      "url_shortened": "http://bit.ly/2fLSryy",
+      "__v": 0,
+      "subtitles": false,
+      "timeline": [
+        {
+          "text": "Articulações ou Junturas",
+          "seconds": 50,
+          "_id": "5aa66b6b7a83a005ac78db88"
+        },
+        {
+          "text": "Tipos de Tecidos Intervenientes",
+          "seconds": 168,
+          "_id": "5aa66b6b7a83a005ac78db87"
+        },
+        {
+          "text": "Suturas",
+          "seconds": 659,
+          "_id": "5aa66b6b7a83a005ac78db86"
+        },
+        {
+          "text": "Gonfose",
+          "seconds": 897,
+          "_id": "5aa66b6b7a83a005ac78db85"
+        },
+        {
+          "text": "Sindesmoses",
+          "seconds": 1030,
+          "_id": "5aa66b6b7a83a005ac78db84"
+        },
+        {
+          "text": "Questionamento",
+          "seconds": 1120,
+          "_id": "5aa66b6b7a83a005ac78db83"
+        }
+      ],
+      "tags": [
+        "Articulações ou Junturas",
+        "Tipos de Tecidos Intervenientes",
+        "Suturas",
+        "Gonfose",
+        "Sindesmoses"
+      ],
+      "paid": true,
+      "to_display": true,
+      "id": "5aa66b6b7a83a005ac78db82"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:37.678Z",
+      "createdAt": "2018-03-12T11:58:37.678Z",
+      "title": "Articulações Sinoviais Diartrose ",
+      "slug": "articulacoes-sinoviais-diartrose-",
+      "video_player": "sambatech",
+      "sambatech_token": "17363fbabb182e738b763358e52e5599",
+      "area": {
+        "updatedAt": "2018-03-12T11:58:34.412Z",
+        "createdAt": "2018-03-12T11:58:34.412Z",
+        "title": "Anatomia Humana Superior",
+        "description": "",
+        "color": "#44BAEC",
+        "slug": "anatomia-humana-superior",
+        "subject": "5aa66b697a83a005ac78cd55",
+        "level": "5aa66b697a83a005ac78cd59",
+        "id_old": 41,
+        "__v": 0,
+        "id": "5aa66b6a7a83a005ac78ce7a"
+      },
+      "id_old": 1692,
+      "description": "",
+      "url_shortened": "http://bit.ly/2iIhwLT",
+      "__v": 0,
+      "subtitles": false,
+      "timeline": [
+        {
+          "text": "Articulações ou Junturas",
+          "seconds": 45,
+          "_id": "5aa66b6b7a83a005ac78dc06"
+        },
+        {
+          "text": "Elementos Anatômicos",
+          "seconds": 132,
+          "_id": "5aa66b6b7a83a005ac78dc05"
+        },
+        {
+          "text": "Número de Superfícies Articulares",
+          "seconds": 284,
+          "_id": "5aa66b6b7a83a005ac78dc04"
+        },
+        {
+          "text": "Elementos de uma Articulação Sinovial",
+          "seconds": 360,
+          "_id": "5aa66b6b7a83a005ac78dc03"
+        },
+        {
+          "text": "Eixos e Graus de Liberdade",
+          "seconds": 703,
+          "_id": "5aa66b6b7a83a005ac78dc02"
+        },
+        {
+          "text": "Articulações Planas",
+          "seconds": 848,
+          "_id": "5aa66b6b7a83a005ac78dc01"
+        },
+        {
+          "text": "Articulações Gínglimo",
+          "seconds": 896,
+          "_id": "5aa66b6b7a83a005ac78dc00"
+        },
+        {
+          "text": "Articulações Trocóides",
+          "seconds": 962,
+          "_id": "5aa66b6b7a83a005ac78dbff"
+        },
+        {
+          "text": "Articulações Elipsóideas",
+          "seconds": 1018,
+          "_id": "5aa66b6b7a83a005ac78dbfe"
+        },
+        {
+          "text": "Articulação Selar",
+          "seconds": 1114,
+          "_id": "5aa66b6b7a83a005ac78dbfd"
+        },
+        {
+          "text": "Articulação Esferoidal",
+          "seconds": 1154,
+          "_id": "5aa66b6b7a83a005ac78dbfc"
+        },
+        {
+          "text": "Questionamento",
+          "seconds": 1230,
+          "_id": "5aa66b6b7a83a005ac78dbfb"
+        }
+      ],
+      "tags": [
+        "Articulações ou Junturas",
+        "Elementos Anatômicos",
+        "Número de Superfícies Articulares",
+        "Elementos de uma Articulação Sinovial",
+        "Eixos e Graus de Liberdade",
+        "Articulações Planas",
+        "Articulações Gínglimo",
+        "Articulações Trocóides",
+        "Articulações Elipsóideas",
+        "Articulação Selar",
+        "Articulação Esferoidal"
+      ],
+      "paid": true,
+      "to_display": true,
+      "id": "5aa66b6b7a83a005ac78dbfa"
+    },
+    {
+      "updatedAt": "2018-03-12T11:58:37.623Z",
+      "createdAt": "2018-03-12T11:58:37.623Z",
+      "title": "Introdução à Anatomia",
+      "slug": "introducao-a-anatomia",
+      "video_player": "sambatech",
+      "sambatech_token": "6128969aa15b913b4889d72bd78d9211",
+      "area": {
+        "updatedAt": "2018-03-12T11:58:34.412Z",
+        "createdAt": "2018-03-12T11:58:34.412Z",
+        "title": "Anatomia Humana Superior",
+        "description": "",
+        "color": "#44BAEC",
+        "slug": "anatomia-humana-superior",
+        "subject": "5aa66b697a83a005ac78cd55",
+        "level": "5aa66b697a83a005ac78cd59",
+        "id_old": 41,
+        "__v": 0,
+        "id": "5aa66b6a7a83a005ac78ce7a"
+      },
+      "id_old": 1286,
+      "description": "",
+      "url_shortened": "http://bit.ly/2pXcgpH",
+      "__v": 0,
+      "subtitles": false,
+      "timeline": [
+        {
+          "text": "Anatomia Humana",
+          "seconds": 40,
+          "_id": "5aa66b6b7a83a005ac78d7e7"
+        },
+        {
+          "text": "Variações Anatômicas Externas e Internas",
+          "seconds": 880,
+          "_id": "5aa66b6b7a83a005ac78d7e6"
+        },
+        {
+          "text": "Fatores Gerais de Variação Anatômica",
+          "seconds": 1047,
+          "_id": "5aa66b6b7a83a005ac78d7e5"
+        },
+        {
+          "text": "Anomalia",
+          "seconds": 1312,
+          "_id": "5aa66b6b7a83a005ac78d7e4"
+        },
+        {
+          "text": "Monstruosidade",
+          "seconds": 1399,
+          "_id": "5aa66b6b7a83a005ac78d7e3"
+        },
+        {
+          "text": "Divisão do Corpo",
+          "seconds": 1473,
+          "_id": "5aa66b6b7a83a005ac78d7e2"
+        },
+        {
+          "text": "Por Sistemas",
+          "seconds": 1526,
+          "_id": "5aa66b6b7a83a005ac78d7e1"
+        },
+        {
+          "text": "Posição Anatômica Ortostática",
+          "seconds": 1637,
+          "_id": "5aa66b6b7a83a005ac78d7e0"
+        },
+        {
+          "text": "Planos de Secção",
+          "seconds": 1728,
+          "_id": "5aa66b6b7a83a005ac78d7df"
+        },
+        {
+          "text": "Termos de Relação e Comparação",
+          "seconds": 1845,
+          "_id": "5aa66b6b7a83a005ac78d7de"
+        },
+        {
+          "text": "Questionamento",
+          "seconds": 2100,
+          "_id": "5aa66b6b7a83a005ac78d7dd"
+        }
+      ],
+      "tags": [],
+      "paid": true,
+      "to_display": true,
+      "id": "5aa66b6b7a83a005ac78d7dc"
+    }
+  ]
+}

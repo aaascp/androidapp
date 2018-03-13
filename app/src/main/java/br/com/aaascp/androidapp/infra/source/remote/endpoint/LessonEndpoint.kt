@@ -14,6 +14,6 @@ interface LessonEndpoint {
     fun getForArea(
             @Query("filter") lessonFilterRequestBody: String,
             @Query("start") start: Int = 0,
-            @Query("end") end: Int = NETWORK_PAGE_SIZE + start
+            @Query("end") end: Int = NETWORK_PAGE_SIZE
     ): Call<LessonResponse>
 }

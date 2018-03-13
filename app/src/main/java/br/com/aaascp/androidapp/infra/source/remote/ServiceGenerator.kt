@@ -6,15 +6,15 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory
 
-object ServiceGenerator {
 
+object ServiceGenerator {
     private const val BASE_URL = BuildConfig.API_URL
 
     private val builder = Retrofit.Builder()
             .baseUrl(BASE_URL)
             .addConverterFactory(GsonConverterFactory.create())
 
-    private var retrofit = builder.build()
+    var retrofit = builder.build()
 
     private val logging = HttpLoggingInterceptor()
             .setLevel(HttpLoggingInterceptor.Level.BODY)
@@ -32,6 +32,9 @@ object ServiceGenerator {
         return retrofit.create(serviceClass)
     }
 }
+
+
+
 
 
 
