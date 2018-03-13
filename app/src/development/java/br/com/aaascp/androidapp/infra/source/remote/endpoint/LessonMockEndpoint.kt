@@ -18,7 +18,14 @@ class LessonMockEndpoint(
             end: Int
     ): Call<LessonResponse> {
 
-        val data = FakeData().getLessonsForArea("1", start, end)
+        val regex = """.*"value":"(\w+)".*""".toRegex()
+
+        val group = regex
+                .matchEntire(lessonFilterRequestBody)
+                ?.range
+
+        val areaId = lessonFilterRequestBody.substring(group!!)
+        val data = FakeData().getLessonsForArea(areaId, start, end)
 
         return delegate
                 .returningResponse(data)

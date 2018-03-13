@@ -1,19 +1,22 @@
 package br.com.aaascp.androidapp.infra.source.remote.endpoint
 
 import br.com.aaascp.androidapp.infra.source.remote.body.AreaResponse
-import br.com.aaascp.androidapp.util.AndroidUtils
 import retrofit2.Call
-import retrofit2.Response
+import retrofit2.mock.BehaviorDelegate
 
-class AreaMockEndpoint : AreaEndpoint {
+class AreaMockEndpoint(
+        private val delegate: BehaviorDelegate<AreaEndpoint>
+) : AreaEndpoint {
+
     override fun getAll(
             start: Int,
             end: Int
     ): Call<AreaResponse> {
 
-        return CallMock<AreaResponse>(
-                Response.success(FakeData().getAreas(start,end)),
-                AndroidUtils().isOnline())
-    }
+        val data = FakeData().getAreas(start, end)
 
+        return delegate
+                .returningResponse(data)
+                .getAll()
+    }
 }

@@ -11,8 +11,8 @@ import retrofit2.mock.NetworkBehavior
 class EndpointMockModule : EndpointModule() {
 
     override fun providesAreaEndpoint(): AreaEndpoint {
-        return AreaMockEndpoint()
-    }
+        mockRetrofit.create(LessonEndpoint::class.java)
+        return AreaMockEndpoint(mockRetrofit.create(AreaEndpoint::class.java))    }
 
     override fun providesLessonEndpoint(): LessonEndpoint {
         mockRetrofit.create(LessonEndpoint::class.java)
