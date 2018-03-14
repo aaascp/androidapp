@@ -3,7 +3,6 @@ package br.com.aaascp.androidapp.presentation.area
 import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-
 import br.com.aaascp.androidapp.R
 import kotlinx.android.synthetic.main.activity_area_list.*
 import android.arch.lifecycle.ViewModelProviders
@@ -49,49 +48,31 @@ class AreaListActivity : AppCompatActivity() {
                 this,
                 Observer {
                     it?.let {
-                        if (it.isEmpty()) {
-                            showEmptyState()
-                        } else {
-                            showList(it)
-                        }
+                        showList(it)
                     }
                 })
 
         model.networkState.observe(this, Observer {
             showNetworkState(it)
         })
-
-        model.loadingState.observe(this, Observer {
-            when (it) {
-                true -> showLoadingState()
-            }
-        })
-
-        model.errorState.observe(this, Observer {
-            when (it) {
-                true -> showErrorState()
-            }
-        })
     }
 
     private fun showList(it: PagedList<Area>) {
-        if (adapter.itemCount != 0) {
-            list.adapter = adapter
-        }
+        list.adapter = adapter
         adapter.submitList(it)
     }
 
     private fun showLoadingState() {
         list.adapter =
                 SingleRowStaticViewAdapter(
-                        R.layout.row_items_error,
+                        R.layout.row_items_loading,
                         LayoutInflater.from(this))
     }
 
     private fun showErrorState() {
         list.adapter =
                 SingleRowStaticViewAdapter(
-                        R.layout.row_items_loading,
+                        R.layout.row_items_error,
                         LayoutInflater.from(this))
     }
 
@@ -116,12 +97,12 @@ class AreaListActivity : AppCompatActivity() {
         when (networkState?.status) {
             Status.SUCCESS -> showSuccessNetwork()
             Status.FAILED -> showFailedNetwork(networkState.msg)
-            Status.RUNNING -> {
-            }
+            Status.RUNNING -> if (adapter.itemCount == 0) showLoadingState()
         }
     }
 
     private fun showSuccessNetwork() {
+        if (adapter.itemCount == 0) showEmptyState()
         Snackbar.make(
                 root,
                 getString(R.string.list_success_server),
@@ -131,6 +112,7 @@ class AreaListActivity : AppCompatActivity() {
     }
 
     private fun showFailedNetwork(msg: String?) {
+        if (adapter.itemCount == 0) showErrorState()
         Snackbar.make(
                 root,
                 getString(R.string.list_error_server),

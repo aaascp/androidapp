@@ -8,7 +8,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Toast
 import br.com.aaascp.androidapp.R
@@ -64,6 +63,7 @@ class LessonListActivity : AppCompatActivity() {
         initSwipeToRefresh()
         initAdapter()
     }
+
     private fun getViewModel(): LessonListViewModel {
         return ViewModelProviders
                 .of(this)
@@ -99,50 +99,31 @@ class LessonListActivity : AppCompatActivity() {
                 this,
                 Observer {
                     it?.let {
-                        if (it.isEmpty()) {
-                            showEmptyState()
-                        } else {
-                            showList(it)
-                        }
+                        showList(it)
                     }
                 })
 
         model.networkState.observe(this, Observer {
             showNetworkState(it)
         })
-
-
-        model.loadingState.observe(this, Observer {
-            when (it) {
-                true -> showLoadingState()
-            }
-        })
-
-        model.errorState.observe(this, Observer {
-            when (it) {
-                true -> showErrorState()
-            }
-        })
     }
 
     private fun showList(it: PagedList<Lesson>) {
-        if (adapter.itemCount != 0) {
-            list.adapter = adapter
-        }
+        list.adapter = adapter
         adapter.submitList(it)
     }
 
     private fun showLoadingState() {
         list.adapter =
                 SingleRowStaticViewAdapter(
-                        R.layout.row_items_error,
+                        R.layout.row_items_loading,
                         LayoutInflater.from(this))
     }
 
     private fun showErrorState() {
         list.adapter =
                 SingleRowStaticViewAdapter(
-                        R.layout.row_items_loading,
+                        R.layout.row_items_error,
                         LayoutInflater.from(this))
     }
 
@@ -155,14 +136,14 @@ class LessonListActivity : AppCompatActivity() {
 
     private fun showNetworkState(networkState: NetworkState?) {
         when (networkState?.status) {
-            Status.RUNNING -> {
-            }
+            Status.RUNNING -> if (adapter.itemCount == 0) showLoadingState()
             Status.SUCCESS -> showSuccessNetwork()
             Status.FAILED -> showFailedNetwork(networkState.msg)
         }
     }
 
     private fun showSuccessNetwork() {
+        if (adapter.itemCount == 0) showEmptyState()
         Snackbar.make(
                 root,
                 getString(R.string.list_success_server),
@@ -172,7 +153,7 @@ class LessonListActivity : AppCompatActivity() {
     }
 
     private fun showFailedNetwork(msg: String?) {
-        Log.d("Andre",msg)
+        if (adapter.itemCount == 0) showErrorState()
         Snackbar.make(
                 root,
                 getString(R.string.list_error_server),

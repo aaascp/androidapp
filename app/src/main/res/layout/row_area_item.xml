@@ -60,7 +60,7 @@
         <TextView
             android:id="@+id/action"
             android:layout_width="wrap_content"
-            android:layout_height="32dp"
+            android:layout_height="38dp"
             android:gravity="center"
             android:text="@string/area_list_action"
             android:textAllCaps="true"
