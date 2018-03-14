@@ -29,7 +29,6 @@ class AreaListViewModel : ViewModel() {
     })
 
     val loadingState = map(repositoryResult, { checkState(it,Status.RUNNING) })!!
-
     val errorState = map(repositoryResult, { checkState(it,Status.FAILED) })!!
 
     val areas = switchMap(repositoryResult, { it.pagedList })!!

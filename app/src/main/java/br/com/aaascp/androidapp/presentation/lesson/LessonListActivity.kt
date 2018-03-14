@@ -2,6 +2,7 @@ package br.com.aaascp.androidapp.presentation.lesson
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
+import android.arch.paging.PagedList
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -13,6 +14,7 @@ import android.widget.Toast
 import br.com.aaascp.androidapp.R
 import br.com.aaascp.androidapp.infra.repository.NetworkState
 import br.com.aaascp.androidapp.infra.repository.Status
+import br.com.aaascp.androidapp.infra.source.local.entity.Lesson
 import br.com.aaascp.androidapp.presentation.SingleRowStaticViewAdapter
 import kotlinx.android.synthetic.main.activity_lesson_list.*
 
@@ -100,7 +102,7 @@ class LessonListActivity : AppCompatActivity() {
                         if (it.isEmpty()) {
                             showEmptyState()
                         } else {
-                            adapter.submitList(it)
+                            showList(it)
                         }
                     }
                 })
@@ -108,6 +110,40 @@ class LessonListActivity : AppCompatActivity() {
         model.networkState.observe(this, Observer {
             showNetworkState(it)
         })
+
+
+        model.loadingState.observe(this, Observer {
+            when (it) {
+                true -> showLoadingState()
+            }
+        })
+
+        model.errorState.observe(this, Observer {
+            when (it) {
+                true -> showErrorState()
+            }
+        })
+    }
+
+    private fun showList(it: PagedList<Lesson>) {
+        if (adapter.itemCount != 0) {
+            list.adapter = adapter
+        }
+        adapter.submitList(it)
+    }
+
+    private fun showLoadingState() {
+        list.adapter =
+                SingleRowStaticViewAdapter(
+                        R.layout.row_items_error,
+                        LayoutInflater.from(this))
+    }
+
+    private fun showErrorState() {
+        list.adapter =
+                SingleRowStaticViewAdapter(
+                        R.layout.row_items_loading,
+                        LayoutInflater.from(this))
     }
 
     private fun showEmptyState() {
@@ -129,7 +165,7 @@ class LessonListActivity : AppCompatActivity() {
     private fun showSuccessNetwork() {
         Snackbar.make(
                 root,
-                getString(R.string.list_success),
+                getString(R.string.list_success_server),
                 Toast.LENGTH_LONG)
                 .setAction(getString(R.string.close), {})
                 .show()
@@ -139,7 +175,7 @@ class LessonListActivity : AppCompatActivity() {
         Log.d("Andre",msg)
         Snackbar.make(
                 root,
-                getString(R.string.list_error),
+                getString(R.string.list_error_server),
                 Toast.LENGTH_LONG)
                 .setAction(getString(R.string.retry), {
                     model.retry()

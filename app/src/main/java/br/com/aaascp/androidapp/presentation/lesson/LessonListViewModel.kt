@@ -5,7 +5,10 @@ import android.arch.lifecycle.Transformations.map
 import android.arch.lifecycle.Transformations.switchMap
 import android.arch.lifecycle.ViewModel
 import br.com.aaascp.androidapp.MainApplication
+import br.com.aaascp.androidapp.infra.repository.Listing
+import br.com.aaascp.androidapp.infra.repository.Status
 import br.com.aaascp.androidapp.infra.repository.lesson.LessonRepository
+import br.com.aaascp.androidapp.infra.source.local.entity.Lesson
 import javax.inject.Inject
 
 class LessonListViewModel : ViewModel() {
@@ -26,6 +29,10 @@ class LessonListViewModel : ViewModel() {
         repository.getForArea(it)
     })
 
+    val loadingState = map(repositoryResult, { checkState(it, Status.RUNNING) })!!
+    val errorState = map(repositoryResult, { checkState(it, Status.FAILED) })!!
+
+
     val lessons = switchMap(repositoryResult, { it.pagedList })!!
     val networkState = switchMap(repositoryResult, { it.networkState })!!
     val refreshState = switchMap(repositoryResult, { it.refreshState })!!
@@ -37,5 +44,12 @@ class LessonListViewModel : ViewModel() {
     fun retry() {
         val listing = repositoryResult?.value
         listing?.retry?.invoke()
+    }
+
+    private fun checkState(it: Listing<Lesson>, status: Status): Boolean {
+        return (it.pagedList.value?.size == 0
+                || it.pagedList.value?.size == null) &&
+                (it.networkState.value?.status == status
+                        || it.networkState.value?.status == null)
     }
 }
