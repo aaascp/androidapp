@@ -4,7 +4,6 @@ import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.Transformations
 import android.arch.paging.LivePagedListBuilder
-import android.database.DatabaseUtils
 import br.com.aaascp.androidapp.infra.adapter.AreaAdapter
 import br.com.aaascp.androidapp.infra.repository.Listing
 import br.com.aaascp.androidapp.infra.repository.NetworkState

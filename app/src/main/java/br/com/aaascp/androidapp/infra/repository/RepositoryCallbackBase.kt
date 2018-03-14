@@ -16,13 +16,26 @@ class RepositoryCallbackBase<T : Any> @Inject constructor(
 
     override fun onResponse(call: Call<T>, response: Response<T>) {
         val runnable = FunctionUtils.Companion.Runnable1(success)
-        response.body()?.let {
-            runnable.parameter = it
-            executor.execute(runnable)
+        val handled = handleResponse(response)
+        if(!handled) {
+            response.body()?.let {
+                runnable.parameter = it
+                executor.execute(runnable)
+            }
         }
     }
 
     override fun onFailure(call: Call<T>, throwable: Throwable) {
         failure(throwable)
+    }
+
+    private fun handleResponse(response: Response<T>): Boolean {
+        when(response.code()) {
+            401 -> {
+                failure(Throwable(response.message()))
+                return true
+            }
+        }
+        return false
     }
 }
