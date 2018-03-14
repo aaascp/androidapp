@@ -30,8 +30,8 @@ class AreaListActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-        initAdapter()
         initSwipeToRefresh()
+        initAdapter()
     }
 
     private fun getViewModel(): AreaListViewModel {

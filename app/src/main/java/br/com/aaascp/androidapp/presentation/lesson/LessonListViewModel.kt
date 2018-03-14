@@ -26,9 +26,9 @@ class LessonListViewModel : ViewModel() {
         repository.getForArea(it)
     })
 
-    val lessons = switchMap(repositoryResult, { it.pagedList })
-    val networkState = switchMap(repositoryResult, { it.networkState })
-    val refreshState = switchMap(repositoryResult, { it.refreshState })
+    val lessons = switchMap(repositoryResult, { it.pagedList })!!
+    val networkState = switchMap(repositoryResult, { it.networkState })!!
+    val refreshState = switchMap(repositoryResult, { it.refreshState })!!
 
     fun refresh() {
         repositoryResult.value?.refresh?.invoke()

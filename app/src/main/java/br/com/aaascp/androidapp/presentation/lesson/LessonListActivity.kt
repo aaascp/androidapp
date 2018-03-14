@@ -7,6 +7,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.LayoutInflater
 import android.widget.Toast
 import br.com.aaascp.androidapp.R
@@ -50,13 +51,17 @@ class LessonListActivity : AppCompatActivity() {
         val subject = intent.extras.getString(AREA_SUBJECT_EXTRA)
 
         model = getViewModel()
-
-        initAdapter()
         initToolbar(title, subject)
 
         model.showLessonsForArea(id)
     }
 
+    override fun onStart() {
+        super.onStart()
+
+        initSwipeToRefresh()
+        initAdapter()
+    }
     private fun getViewModel(): LessonListViewModel {
         return ViewModelProviders
                 .of(this)
@@ -72,6 +77,16 @@ class LessonListActivity : AppCompatActivity() {
 
         toolbar.setNavigationOnClickListener {
             this.onBackPressed()
+        }
+    }
+
+    private fun initSwipeToRefresh() {
+        model.refreshState.observe(this, Observer {
+            swipeRefreshLayout.isRefreshing = it == NetworkState.LOADING
+        })
+
+        swipeRefreshLayout.setOnRefreshListener {
+            model.refresh()
         }
     }
 
@@ -107,7 +122,7 @@ class LessonListActivity : AppCompatActivity() {
             Status.RUNNING -> {
             }
             Status.SUCCESS -> showSuccessNetwork()
-            Status.FAILED -> showFailedNetwork()
+            Status.FAILED -> showFailedNetwork(networkState.msg)
         }
     }
 
@@ -120,7 +135,8 @@ class LessonListActivity : AppCompatActivity() {
                 .show()
     }
 
-    private fun showFailedNetwork() {
+    private fun showFailedNetwork(msg: String?) {
+        Log.d("Andre",msg)
         Snackbar.make(
                 root,
                 getString(R.string.list_error),
