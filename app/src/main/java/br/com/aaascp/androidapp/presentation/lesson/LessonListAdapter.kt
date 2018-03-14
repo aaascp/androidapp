@@ -34,17 +34,12 @@ class LessonListAdapter(
             position: Int) {
 
         val lesson = getItem(position)
-        val index = position + 1
 
-        holder.count.text = "$index"
-        holder.id.text = lesson?.id
         holder.title.text = lesson?.title
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val count: TextView = itemView.lesson_item_count
-        val id: TextView = itemView.lesson_item_id
-        val title: TextView = itemView.lesson_item_title
+        val title: TextView = itemView.title
     }
 
     companion object {
