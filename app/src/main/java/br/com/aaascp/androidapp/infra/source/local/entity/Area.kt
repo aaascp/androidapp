@@ -6,7 +6,8 @@ import android.arch.persistence.room.PrimaryKey
 @Entity
 data class Area(
         @PrimaryKey val id: String,
-        val title: String
+        val title: String,
+        val subject: String
 ) {
     var indexInResponse: Int = -1
 }

@@ -47,13 +47,21 @@ class AreaListActivity : AppCompatActivity() {
                 this,
                 Observer {
                     it?.let {
-                        adapter.submitList(it)
+                        if (it.isEmpty()) {
+                            showEmptyState()
+                        } else {
+                            adapter.submitList(it)
+                        }
                     }
                 })
 
         model.networkState.observe(this, Observer {
             setNetworkState(it)
         })
+    }
+
+    private fun showEmptyState() {
+
     }
 
     private fun initSwipeToRefresh() {
@@ -79,23 +87,23 @@ class AreaListActivity : AppCompatActivity() {
     private fun setNetworkState(networkState: NetworkState?) {
         when (networkState?.status) {
             Status.RUNNING -> {
-//                popUpMessage.text = "Atualizando com o servidor..."
-//                popUpAction.visibility = View.GONE
             }
             Status.SUCCESS -> {
                 Snackbar.make(
                         root,
-                        "Atualizado com sucesso!",
+                        getString(R.string.area_list_success),
                         LENGTH_LONG)
-                        .setAction("FECHAR", {})
+                        .setAction(getString(R.string.close), {})
                         .show()
             }
             Status.FAILED -> {
                 Snackbar.make(
                         root,
-                        "Erro ao atualizar com o servidor!",
+                        getString(R.string.area_list_error),
                         LENGTH_LONG)
-                        .setAction("REPETIR", { model.retry() })
+                        .setAction(getString(R.string.retry), {
+                            model.retry()
+                        })
                         .show()
             }
         }

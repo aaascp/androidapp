@@ -7,7 +7,7 @@ class AreaAdapter {
     companion object {
         fun adapt(lessons: List<AreaResponseBody>): List<Area> {
             return lessons.map {
-                Area(it.id, it.title)
+                Area(it.id, it.title, it.subject.title)
             }
         }
     }

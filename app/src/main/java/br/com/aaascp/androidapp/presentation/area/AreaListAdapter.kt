@@ -32,25 +32,23 @@ class AreaListAdapter(
         val area = getItem(position)
 
         area?.let {
-            val index = position + 1
 
-            holder.count.text = "$index"
-            holder.id.text = area.id
+            holder.subject.text = area.subject
             holder.title.text = area.title
             holder.root.setOnClickListener {
                 LessonListActivity.startForArea(
                         context,
                         area.id,
-                        area.title)
+                        area.title,
+                        area.subject)
             }
         }
     }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val root: View = itemView.areaItemRoot
-        val count: TextView = itemView.areaItemCount
-        val id: TextView = itemView.areaItemId
-        val title: TextView = itemView.areaItemTitle
+        val root: View = itemView.root
+        val subject: TextView = itemView.subject
+        val title: TextView = itemView.title
     }
 
     companion object {

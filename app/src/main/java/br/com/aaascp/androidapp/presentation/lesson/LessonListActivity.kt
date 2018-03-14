@@ -16,15 +16,18 @@ class LessonListActivity : AppCompatActivity() {
     companion object {
         private const val AREA_ID_EXTRA = "AREA_ID_EXTRA"
         private const val AREA_NAME_EXTRA = "AREA_NAME_EXTRA"
+        private const val AREA_SUBJECT_EXTRA = "AREA_SUBJECT_EXTRA"
 
         fun startForArea(
                 context: Context,
-                areaId: String,
-                areaTitle: String) {
+                id: String,
+                title: String,
+                subject: String) {
 
             val intent = Intent(context, LessonListActivity::class.java)
-            intent.putExtra(AREA_ID_EXTRA, areaId)
-            intent.putExtra(AREA_NAME_EXTRA, areaTitle)
+            intent.putExtra(AREA_ID_EXTRA, id)
+            intent.putExtra(AREA_NAME_EXTRA, title)
+            intent.putExtra(AREA_SUBJECT_EXTRA, subject)
 
             context.startActivity(intent)
         }
@@ -35,15 +38,16 @@ class LessonListActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_lesson_list)
 
-        val areaId = intent.extras.getString(AREA_ID_EXTRA)
-        val areaTitle = intent.extras.getString(AREA_NAME_EXTRA)
+        val id = intent.extras.getString(AREA_ID_EXTRA)
+        val title = intent.extras.getString(AREA_NAME_EXTRA)
+        val subject = intent.extras.getString(AREA_NAME_EXTRA)
 
         model = getViewModel()
 
         initAdapter()
-        initToolbar(areaTitle)
+        initToolbar(title, subject)
 
-        model.showLessonsForArea(areaId)
+        model.showLessonsForArea(id)
     }
 
     private fun getViewModel(): LessonListViewModel {
@@ -52,11 +56,11 @@ class LessonListActivity : AppCompatActivity() {
                 .get(LessonListViewModel::class.java)
     }
 
-    private fun initToolbar(areaTitle: String) {
+    private fun initToolbar(title: String, subject: String) {
         toolbar.title =
                 String.format(
                         getString(R.string.lesson_title),
-                        areaTitle)
+                        title)
     }
 
     private fun initAdapter() {

@@ -14,7 +14,7 @@ import javax.inject.Singleton
         entities = arrayOf(
                 Area::class,
                 Lesson::class),
-        version = 2)
+        version = 3)
 abstract class RoomDatabase : RoomDatabase(), AppDatabase {
 
     override fun runInTransaction(body: () -> Unit) {

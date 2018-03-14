@@ -1,5 +1,14 @@
 <resources>
+    <string name="retry">Repetir</string>
+    <string name="close">Fechar</string>
+
     <string name="areas_title">Areas de Estudo</string>
     <string name="lesson_title">Area: %1$s</string>
     <string name="last_update">Ultima atualizacao: %1$s</string>
+
+    <string name="area_list_action">VER VIDEOAULAS</string>
+    <string name="area_list_success">Atualizado com sucesso!</string>
+    <string name="area_list_error">Erro ao atualizar com o servidor!</string>
+
+
 </resources>
