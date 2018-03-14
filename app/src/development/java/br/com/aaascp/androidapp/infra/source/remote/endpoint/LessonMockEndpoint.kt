@@ -8,10 +8,6 @@ class LessonMockEndpoint(
         private val delegate: BehaviorDelegate<LessonEndpoint>
 ) : LessonEndpoint {
 
-    companion object {
-        const val NETWORK_PAGE_SIZE: Int = 5
-    }
-
     override fun getForArea(
             lessonFilterRequestBody: String,
             start: Int,
@@ -20,12 +16,15 @@ class LessonMockEndpoint(
 
         val regex = """.*"value":"(\w+)".*""".toRegex()
 
-        val group = regex
-                .matchEntire(lessonFilterRequestBody)
-                ?.range
 
-        val areaId = lessonFilterRequestBody.substring(group!!)
-        val data = FakeData().getLessonsForArea(areaId, start, end)
+        val areaId = regex
+                .matchEntire(lessonFilterRequestBody)
+                ?.groups
+                ?.get(1)
+                ?.value
+
+
+        val data = FakeData().getLessonsForArea(areaId.orEmpty(), start, end)
 
         return delegate
                 .returningResponse(data)

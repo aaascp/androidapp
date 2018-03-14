@@ -37,7 +37,7 @@ class FakeData {
 
         response?.data?.let {
             val safeEnd = if (it.size < end) it.size else end
-            response.data = it.subList(start, safeEnd).filter { it.id == areaId }
+            response.data = it.subList(start, safeEnd).filter { it.area.id == areaId }
         }
 
         return response
