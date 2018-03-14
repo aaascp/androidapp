@@ -27,8 +27,15 @@ android {
     }
     buildTypes {
         release {
-            minifyEnabled false
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+
+        }
+        debug {
+            minifyEnabled false
+            debuggable true
         }
     }
 
@@ -39,11 +46,11 @@ android {
 
             multiDexEnabled false
         }
-        development {
-            resValue "string", "app_name", "Biologia Total Development"
+        mock {
+            resValue "string", "app_name", "Biologia Total Test"
 
             multiDexEnabled true
-            applicationIdSuffix = ".development"
+            applicationIdSuffix = ".mock"
         }
     }
 }
