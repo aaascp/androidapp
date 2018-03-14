@@ -1,9 +1,9 @@
 package br.com.aaascp.androidapp.infra.source.remote.body.lesson
 
-import br.com.aaascp.androidapp.infra.source.remote.body.area.AreaResponseBody
+data class Area(val id: String)
 
 data class LessonResponseBody(
         val id: String,
-        val area: AreaResponseBody,
+        val area: Area,
         val title: String
 )

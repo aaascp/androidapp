@@ -81,7 +81,7 @@ class AreaListActivity : AppCompatActivity() {
         when (networkState?.status) {
             Status.RUNNING -> { }
             Status.SUCCESS -> showSuccessNetwork()
-            Status.FAILED -> showFailedNetwork()
+            Status.FAILED -> showFailedNetwork(networkState.msg)
         }
     }
 
@@ -94,7 +94,7 @@ class AreaListActivity : AppCompatActivity() {
                 .show()
     }
 
-    private fun showFailedNetwork() {
+    private fun showFailedNetwork(msg: String?) {
         Snackbar.make(
                 root,
                 getString(R.string.list_error),
