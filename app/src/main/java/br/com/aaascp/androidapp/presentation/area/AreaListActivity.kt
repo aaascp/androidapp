@@ -14,11 +14,12 @@ import br.com.aaascp.androidapp.infra.repository.NetworkState
 import br.com.aaascp.androidapp.infra.repository.Status
 import br.com.aaascp.androidapp.infra.source.local.entity.Area
 import br.com.aaascp.androidapp.presentation.SingleRowStaticViewAdapter
+import br.com.aaascp.androidapp.presentation.area.adapter.AreaListAdapter
 
 class AreaListActivity : AppCompatActivity() {
 
     private lateinit var model: AreaListViewModel
-    private val adapter = AreaListAdapter(this)
+    private val adapter = AreaListAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

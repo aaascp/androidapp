@@ -1,7 +1,7 @@
 <resources>
     <string name="retry">Repetir</string>
     <string name="close">Fechar</string>
-    <string name="last_update">Ultima atualizacao: %1$s</string>
+    <string name="last_update">Atualizado em: %1$s</string>
 
     <string name="areas_title">Areas de Estudo</string>
     <string name="area_list_action">VER VIDEOAULAS</string>

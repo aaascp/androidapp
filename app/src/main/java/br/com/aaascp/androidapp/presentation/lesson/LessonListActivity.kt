@@ -15,12 +15,13 @@ import br.com.aaascp.androidapp.infra.repository.NetworkState
 import br.com.aaascp.androidapp.infra.repository.Status
 import br.com.aaascp.androidapp.infra.source.local.entity.Lesson
 import br.com.aaascp.androidapp.presentation.SingleRowStaticViewAdapter
+import br.com.aaascp.androidapp.presentation.lesson.adapter.LessonListAdapter
 import kotlinx.android.synthetic.main.activity_lesson_list.*
 
 class LessonListActivity : AppCompatActivity() {
 
     private lateinit var model: LessonListViewModel
-    private val adapter = LessonListAdapter(this)
+    private val adapter = LessonListAdapter()
 
     companion object {
         private const val AREA_ID_EXTRA = "AREA_ID_EXTRA"
