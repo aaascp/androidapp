@@ -8,14 +8,16 @@ import br.com.aaascp.androidapp.R
 import kotlinx.android.synthetic.main.activity_area_list.*
 import android.arch.lifecycle.ViewModelProviders
 import android.support.design.widget.Snackbar
+import android.view.LayoutInflater
 import android.widget.Toast.LENGTH_LONG
 import br.com.aaascp.androidapp.infra.repository.NetworkState
 import br.com.aaascp.androidapp.infra.repository.Status
-import br.com.aaascp.androidapp.util.TableUtils
+import br.com.aaascp.androidapp.presentation.SingleRowStaticViewAdapter
 
 class AreaListActivity : AppCompatActivity() {
 
     private lateinit var model: AreaListViewModel
+    private val adapter = AreaListAdapter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +25,6 @@ class AreaListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_area_list)
 
         model = getViewModel()
-        initView()
     }
 
     override fun onStart() {
@@ -40,7 +41,6 @@ class AreaListActivity : AppCompatActivity() {
     }
 
     private fun initAdapter() {
-        val adapter = AreaListAdapter(this)
         list.adapter = adapter
 
         model.areas.observe(
@@ -56,12 +56,15 @@ class AreaListActivity : AppCompatActivity() {
                 })
 
         model.networkState.observe(this, Observer {
-            setNetworkState(it)
+            showNetworkState(it)
         })
     }
 
     private fun showEmptyState() {
-
+        list.adapter =
+                SingleRowStaticViewAdapter(
+                        R.layout.row_items_empty,
+                        LayoutInflater.from(this))
     }
 
     private fun initSwipeToRefresh() {
@@ -74,38 +77,31 @@ class AreaListActivity : AppCompatActivity() {
         }
     }
 
-    private fun initView() {
-        val lastUpdatedAt = TableUtils().getAreaTableLastUpdate()
-        lastUpdatedAt?.let {
-            lastUpdate.text =
-                    String.format(
-                            getString(R.string.last_update),
-                            it)
+    private fun showNetworkState(networkState: NetworkState?) {
+        when (networkState?.status) {
+            Status.RUNNING -> { }
+            Status.SUCCESS -> showSuccessNetwork()
+            Status.FAILED -> showFailedNetwork()
         }
     }
 
-    private fun setNetworkState(networkState: NetworkState?) {
-        when (networkState?.status) {
-            Status.RUNNING -> {
-            }
-            Status.SUCCESS -> {
-                Snackbar.make(
-                        root,
-                        getString(R.string.area_list_success),
-                        LENGTH_LONG)
-                        .setAction(getString(R.string.close), {})
-                        .show()
-            }
-            Status.FAILED -> {
-                Snackbar.make(
-                        root,
-                        getString(R.string.area_list_error),
-                        LENGTH_LONG)
-                        .setAction(getString(R.string.retry), {
-                            model.retry()
-                        })
-                        .show()
-            }
-        }
+    private fun showSuccessNetwork() {
+        Snackbar.make(
+                root,
+                getString(R.string.list_success),
+                LENGTH_LONG)
+                .setAction(getString(R.string.close), {})
+                .show()
+    }
+
+    private fun showFailedNetwork() {
+        Snackbar.make(
+                root,
+                getString(R.string.list_error),
+                LENGTH_LONG)
+                .setAction(getString(R.string.retry), {
+                    model.retry()
+                })
+                .show()
     }
 }

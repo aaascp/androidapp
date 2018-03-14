@@ -25,9 +25,9 @@ class AreaListViewModel : ViewModel() {
         repository.getAll()
     })
 
-    val areas = switchMap(repositoryResult, { it.pagedList })
-    val networkState = switchMap(repositoryResult, { it.networkState })
-    val refreshState = switchMap(repositoryResult, { it.refreshState })
+    val areas = switchMap(repositoryResult, { it.pagedList })!!
+    val networkState = switchMap(repositoryResult, { it.networkState })!!
+    val refreshState = switchMap(repositoryResult, { it.refreshState })!!
 
     fun refresh() {
         repositoryResult.value?.refresh?.invoke()
