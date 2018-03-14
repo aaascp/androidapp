@@ -20,5 +20,5 @@ import javax.inject.Singleton
 
 @Module
 class DatabaseMockModule(application: Application) : DatabaseModule(application){
-    override val name = "app-dev-db.db"
+    override fun name() = "app-dev-db.db"
 }

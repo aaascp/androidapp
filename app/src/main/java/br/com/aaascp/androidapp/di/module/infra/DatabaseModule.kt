@@ -22,14 +22,14 @@ open class DatabaseModule(application: Application) {
 
     private val database: RoomDatabase
 
-    protected val name = "app-db.db"
+    protected open fun name() = "app-db.db"
 
     init {
         database =
                 Room.databaseBuilder(
                         application,
                         RoomDatabase::class.java,
-                        name
+                        name()
                 ).fallbackToDestructiveMigration()
                         .build()
     }
