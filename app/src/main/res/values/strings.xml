@@ -8,7 +8,9 @@
 
     <string name="lesson_title">Area: %1$s</string>
 
-    <string name="list_success">Atualizado com sucesso!</string>
-    <string name="list_error">Erro ao atualizar com o servidor!</string>
+    <string name="list_success_server">Atualizado com sucesso!</string>
+    <string name="list_error_server">Erro ao atualizar com o servidor!</string>
     <string name="list_empty">Nenhum item para ser exibido</string>
+    <string name="list_loading">Carregando…</string>
+    <string name="list_error">Erro ao carregar os dados</string>
 </resources>

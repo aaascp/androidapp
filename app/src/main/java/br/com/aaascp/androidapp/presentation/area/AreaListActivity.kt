@@ -7,11 +7,13 @@ import android.support.v7.app.AppCompatActivity
 import br.com.aaascp.androidapp.R
 import kotlinx.android.synthetic.main.activity_area_list.*
 import android.arch.lifecycle.ViewModelProviders
+import android.arch.paging.PagedList
 import android.support.design.widget.Snackbar
 import android.view.LayoutInflater
 import android.widget.Toast.LENGTH_LONG
 import br.com.aaascp.androidapp.infra.repository.NetworkState
 import br.com.aaascp.androidapp.infra.repository.Status
+import br.com.aaascp.androidapp.infra.source.local.entity.Area
 import br.com.aaascp.androidapp.presentation.SingleRowStaticViewAdapter
 
 class AreaListActivity : AppCompatActivity() {
@@ -50,7 +52,7 @@ class AreaListActivity : AppCompatActivity() {
                         if (it.isEmpty()) {
                             showEmptyState()
                         } else {
-                            adapter.submitList(it)
+                            showList(it)
                         }
                     }
                 })
@@ -58,6 +60,39 @@ class AreaListActivity : AppCompatActivity() {
         model.networkState.observe(this, Observer {
             showNetworkState(it)
         })
+
+        model.loadingState.observe(this, Observer {
+            when (it) {
+                true -> showLoadingState()
+            }
+        })
+
+        model.errorState.observe(this, Observer {
+            when (it) {
+                true -> showErrorState()
+            }
+        })
+    }
+
+    private fun showList(it: PagedList<Area>) {
+        if (adapter.itemCount != 0) {
+            list.adapter = adapter
+        }
+        adapter.submitList(it)
+    }
+
+    private fun showLoadingState() {
+        list.adapter =
+                SingleRowStaticViewAdapter(
+                        R.layout.row_items_error,
+                        LayoutInflater.from(this))
+    }
+
+    private fun showErrorState() {
+        list.adapter =
+                SingleRowStaticViewAdapter(
+                        R.layout.row_items_loading,
+                        LayoutInflater.from(this))
     }
 
     private fun showEmptyState() {
@@ -79,16 +114,17 @@ class AreaListActivity : AppCompatActivity() {
 
     private fun showNetworkState(networkState: NetworkState?) {
         when (networkState?.status) {
-            Status.RUNNING -> { }
             Status.SUCCESS -> showSuccessNetwork()
             Status.FAILED -> showFailedNetwork(networkState.msg)
+            Status.RUNNING -> {
+            }
         }
     }
 
     private fun showSuccessNetwork() {
         Snackbar.make(
                 root,
-                getString(R.string.list_success),
+                getString(R.string.list_success_server),
                 LENGTH_LONG)
                 .setAction(getString(R.string.close), {})
                 .show()
@@ -97,7 +133,7 @@ class AreaListActivity : AppCompatActivity() {
     private fun showFailedNetwork(msg: String?) {
         Snackbar.make(
                 root,
-                getString(R.string.list_error),
+                getString(R.string.list_error_server),
                 LENGTH_LONG)
                 .setAction(getString(R.string.retry), {
                     model.retry()
