@@ -2,26 +2,27 @@ package br.com.aaascp.androidapp.presentation.lesson
 
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
-import android.arch.paging.PagedList
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.Snackbar
 import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
-import android.widget.Toast
 import br.com.aaascp.androidapp.R
 import br.com.aaascp.androidapp.infra.repository.NetworkState
 import br.com.aaascp.androidapp.infra.repository.Status
-import br.com.aaascp.androidapp.infra.source.local.entity.Lesson
 import br.com.aaascp.androidapp.presentation.SingleRowStaticViewAdapter
 import br.com.aaascp.androidapp.presentation.lesson.adapter.LessonListAdapter
+
 import kotlinx.android.synthetic.main.activity_lesson_list.*
 
 class LessonListActivity : AppCompatActivity() {
 
     private lateinit var model: LessonListViewModel
-    private val adapter = LessonListAdapter()
+    private lateinit var listAdapter: LessonListAdapter
+    private lateinit var errorAdapter: SingleRowStaticViewAdapter
+    private lateinit var loadingAdapter: SingleRowStaticViewAdapter
+    private lateinit var emptyAdapter: SingleRowStaticViewAdapter
+
 
     companion object {
         private const val AREA_ID_EXTRA = "AREA_ID_EXTRA"
@@ -94,14 +95,31 @@ class LessonListActivity : AppCompatActivity() {
     }
 
     private fun initAdapter() {
-        list.adapter = adapter
+        listAdapter = LessonListAdapter()
+
+        errorAdapter =
+                SingleRowStaticViewAdapter(
+                        R.layout.row_items_error,
+                        LayoutInflater.from(this))
+
+        loadingAdapter =
+                SingleRowStaticViewAdapter(
+                        R.layout.row_items_loading,
+                        LayoutInflater.from(this))
+
+        emptyAdapter =
+                SingleRowStaticViewAdapter(
+                        R.layout.row_items_empty,
+                        LayoutInflater.from(this))
+
 
         model.lessons.observe(
                 this,
                 Observer {
                     it?.let {
-                        showList(it)
+                        listAdapter.submitList(it)
                     }
+
                 })
 
         model.networkState.observe(this, Observer {
@@ -109,59 +127,20 @@ class LessonListActivity : AppCompatActivity() {
         })
     }
 
-    private fun showList(it: PagedList<Lesson>) {
-        list.adapter = adapter
-        adapter.submitList(it)
-    }
-
-    private fun showLoadingState() {
-        list.adapter =
-                SingleRowStaticViewAdapter(
-                        R.layout.row_items_loading,
-                        LayoutInflater.from(this))
-    }
-
-    private fun showErrorState() {
-        list.adapter =
-                SingleRowStaticViewAdapter(
-                        R.layout.row_items_error,
-                        LayoutInflater.from(this))
-    }
-
-    private fun showEmptyState() {
-        list.adapter =
-                SingleRowStaticViewAdapter(
-                        R.layout.row_items_empty,
-                        LayoutInflater.from(this))
-    }
 
     private fun showNetworkState(networkState: NetworkState?) {
         when (networkState?.status) {
-            Status.RUNNING -> if (adapter.itemCount == 0) showLoadingState()
-            Status.SUCCESS -> showSuccessNetwork()
-            Status.FAILED -> showFailedNetwork(networkState.msg)
+            Status.FAILED -> if (listAdapter.itemCount == 0) list.adapter = errorAdapter
+            Status.RUNNING -> if (listAdapter.itemCount == 0) {
+                list.adapter = loadingAdapter
+            }
+            Status.SUCCESS -> {
+                if (listAdapter.itemCount == 0) {
+                    list.adapter = emptyAdapter
+                } else {
+                    list.adapter = listAdapter
+                }
+            }
         }
-    }
-
-    private fun showSuccessNetwork() {
-        if (adapter.itemCount == 0) showEmptyState()
-        Snackbar.make(
-                root,
-                getString(R.string.list_success_server),
-                Toast.LENGTH_LONG)
-                .setAction(getString(R.string.close), {})
-                .show()
-    }
-
-    private fun showFailedNetwork(msg: String?) {
-        if (adapter.itemCount == 0) showErrorState()
-        Snackbar.make(
-                root,
-                getString(R.string.list_error_server),
-                Toast.LENGTH_LONG)
-                .setAction(getString(R.string.retry), {
-                    model.retry()
-                })
-                .show()
     }
 }
