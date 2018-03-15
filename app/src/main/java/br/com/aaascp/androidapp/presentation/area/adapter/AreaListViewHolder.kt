@@ -25,8 +25,8 @@ class AreaListViewHolder(view: View) : ViewHolderBase<Area>(view) {
     private val title: TextView = view.title
 
     override fun bind(item: Area) {
-        subject.text = item.subject
-        title.text = item.title
+        subject.text = item?.subject
+        title.text = item?.title
         root.setOnClickListener {
             LessonListActivity.startForArea(
                     itemView.context,

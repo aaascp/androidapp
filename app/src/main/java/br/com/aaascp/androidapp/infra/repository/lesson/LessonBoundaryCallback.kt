@@ -35,7 +35,8 @@ class LessonBoundaryCallback(
         helper.runIfNotRunning(PagingRequestHelper.RequestType.AFTER) {
             endpoint.getForArea(
                     filter,
-                    itemAtEnd.indexInResponse)
+                    itemAtEnd.indexInResponse,
+                    LessonEndpoint.NETWORK_PAGE_SIZE)
                     .enqueue(createWebserviceCallback(it))
         }
     }

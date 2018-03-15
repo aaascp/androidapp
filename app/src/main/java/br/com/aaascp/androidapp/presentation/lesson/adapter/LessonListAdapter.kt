@@ -11,14 +11,8 @@ class LessonListAdapter : PagedListAdapter<Lesson, ViewHolderBase<Lesson>>(DIFF_
 
     override fun onCreateViewHolder(
             parent: ViewGroup, viewType: Int
-    ): ViewHolderBase<Lesson> = when (viewType) {
-        HEADER_ITEM -> {
-            LessonHeaderViewHolder.create(parent)
-        }
-        LIST_ITEM -> {
-            LessonListViewHolder.create(parent)
-        }
-        else -> throw IllegalArgumentException("unknown view type $viewType")
+    ): ViewHolderBase<Lesson> {
+        return LessonListViewHolder.create(parent)
     }
 
     override fun onBindViewHolder(
@@ -27,20 +21,10 @@ class LessonListAdapter : PagedListAdapter<Lesson, ViewHolderBase<Lesson>>(DIFF_
 
         val lesson = getItem(position)
         lesson?.let { holder.bind(lesson) }
-    }
 
-    override fun getItemViewType(position: Int): Int = when (position) {
-        0 -> {
-            LessonListAdapter.HEADER_ITEM
-        }
-        else -> {
-            LessonListAdapter.LIST_ITEM
-        }
     }
 
     companion object {
-        private const val HEADER_ITEM = R.layout.row_last_update
-        private const val LIST_ITEM = R.layout.row_lesson_item
 
         val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Lesson>() {
             override fun areContentsTheSame(oldItem: Lesson, newItem: Lesson): Boolean =

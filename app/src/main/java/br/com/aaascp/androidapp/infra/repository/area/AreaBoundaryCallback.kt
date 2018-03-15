@@ -31,7 +31,8 @@ class AreaBoundaryCallback(
     override fun onItemAtEndLoaded(itemAtEnd: Area) {
         helper.runIfNotRunning(PagingRequestHelper.RequestType.AFTER) {
             endpoint.getAll(
-                    itemAtEnd.indexInResponse)
+                    itemAtEnd.indexInResponse,
+                    AreaEndpoint.NETWORK_PAGE_SIZE)
                     .enqueue(createWebserviceCallback(it))
         }
     }

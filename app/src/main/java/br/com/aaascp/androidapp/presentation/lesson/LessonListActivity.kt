@@ -112,35 +112,37 @@ class LessonListActivity : AppCompatActivity() {
                         R.layout.row_items_empty,
                         LayoutInflater.from(this))
 
+        list.adapter = loadingAdapter
 
         model.lessons.observe(
                 this,
                 Observer {
                     it?.let {
                         listAdapter.submitList(it)
+                        showState(Status.SUCCESS, it.isEmpty())
                     }
-
                 })
 
         model.networkState.observe(this, Observer {
-            showNetworkState(it)
+            showState(it?.status)
         })
     }
 
-
-    private fun showNetworkState(networkState: NetworkState?) {
-        when (networkState?.status) {
-            Status.FAILED -> if (listAdapter.itemCount == 0) list.adapter = errorAdapter
-            Status.RUNNING -> if (listAdapter.itemCount == 0) {
-                list.adapter = loadingAdapter
-            }
+    private fun showState(status: Status?, responseIsEmpty: Boolean = true) {
+        when (status) {
+            Status.FAILED -> if (listIsEmpty(responseIsEmpty)) list.adapter = errorAdapter
+            Status.RUNNING -> if (listIsEmpty(responseIsEmpty)) list.adapter = loadingAdapter
             Status.SUCCESS -> {
-                if (listAdapter.itemCount == 0) {
+                if (listIsEmpty(responseIsEmpty)) {
                     list.adapter = emptyAdapter
                 } else {
                     list.adapter = listAdapter
                 }
             }
         }
+    }
+
+    private fun listIsEmpty(responseIsEmpty: Boolean) : Boolean{
+        return responseIsEmpty && list.adapter.itemCount == 1
     }
 }
