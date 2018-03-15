@@ -10,7 +10,7 @@ import br.com.aaascp.androidapp.presentation.ViewHolderBase
 import br.com.aaascp.androidapp.presentation.lesson.LessonListActivity
 import kotlinx.android.synthetic.main.row_area_item.view.*
 
-class AreaListViewHolder(view: View) : ViewHolderBase<Area>(view) {
+class AreaListViewHolder private constructor(view: View) : ViewHolderBase<Area>(view) {
 
     companion object {
         fun create(parent: ViewGroup): AreaListViewHolder {
@@ -25,8 +25,8 @@ class AreaListViewHolder(view: View) : ViewHolderBase<Area>(view) {
     private val title: TextView = view.title
 
     override fun bind(item: Area) {
-        subject.text = item?.subject
-        title.text = item?.title
+        subject.text = item.subject
+        title.text = item.title
         root.setOnClickListener {
             LessonListActivity.startForArea(
                     itemView.context,

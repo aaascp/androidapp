@@ -10,7 +10,7 @@ import br.com.aaascp.androidapp.presentation.ViewHolderBase
 import br.com.aaascp.androidapp.util.TableUtils
 import kotlinx.android.synthetic.main.row_last_update.view.*
 
-class LessonHeaderViewHolder(view: View) : ViewHolderBase<Lesson>(view) {
+class LessonHeaderViewHolder private constructor(view: View) : ViewHolderBase<Lesson>(view) {
 
     companion object {
         fun create(parent: ViewGroup): LessonHeaderViewHolder {

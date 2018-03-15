@@ -21,7 +21,7 @@ class AreaListAdapter : PagedListAdapter<Area, ViewHolderBase<Area>>(DIFF_CALLBA
 
     override fun onBindViewHolder(holder: ViewHolderBase<Area>, position: Int) {
         val index = if (position == 0) 0 else position - 1
-        val area = getItem(index)
+        val area = currentList?.get(index)
         area?.let { holder.bind(area) }
     }
 

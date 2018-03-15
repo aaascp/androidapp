@@ -9,7 +9,7 @@ import br.com.aaascp.androidapp.infra.source.local.entity.Lesson
 import br.com.aaascp.androidapp.presentation.ViewHolderBase
 import kotlinx.android.synthetic.main.row_lesson_item.view.*
 
-class LessonListViewHolder(view: View) : ViewHolderBase<Lesson>(view) {
+class LessonListViewHolder private constructor(view: View) : ViewHolderBase<Lesson>(view) {
 
     companion object {
         fun create(parent: ViewGroup): LessonListViewHolder {
