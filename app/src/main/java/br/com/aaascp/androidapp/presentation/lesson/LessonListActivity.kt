@@ -8,8 +8,9 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import br.com.aaascp.androidapp.R
+import br.com.aaascp.androidapp.infra.repository.ListState
+import br.com.aaascp.androidapp.infra.repository.ListState.*
 import br.com.aaascp.androidapp.infra.repository.NetworkState
-import br.com.aaascp.androidapp.infra.repository.Status
 import br.com.aaascp.androidapp.presentation.SingleRowStaticViewAdapter
 import br.com.aaascp.androidapp.presentation.lesson.adapter.LessonListAdapter
 
@@ -112,37 +113,26 @@ class LessonListActivity : AppCompatActivity() {
                         R.layout.row_items_empty,
                         LayoutInflater.from(this))
 
-        list.adapter = loadingAdapter
+        list.adapter = listAdapter
 
         model.lessons.observe(
                 this,
                 Observer {
-                    it?.let {
-                        listAdapter.submitList(it)
-                        showState(Status.SUCCESS, it.isEmpty())
-                    }
+                    listAdapter.submitList(it)
                 })
 
-        model.networkState.observe(this, Observer {
-            showState(it?.status)
+        model.listState.observe(this, Observer {
+            showState(it)
         })
     }
 
-    private fun showState(status: Status?, responseIsEmpty: Boolean = true) {
-        when (status) {
-            Status.FAILED -> if (listIsEmpty(responseIsEmpty)) list.adapter = errorAdapter
-            Status.RUNNING -> if (listIsEmpty(responseIsEmpty)) list.adapter = loadingAdapter
-            Status.SUCCESS -> {
-                if (listIsEmpty(responseIsEmpty)) {
-                    list.adapter = emptyAdapter
-                } else {
-                    list.adapter = listAdapter
-                }
-            }
-        }
-    }
+    private fun showState(state: ListState?) {
+        when (state) {
+            LOADING -> list.adapter = loadingAdapter
+            EMPTY -> list.adapter = emptyAdapter
+            ERROR -> list.adapter = errorAdapter
+            FILLED -> list.adapter = listAdapter
 
-    private fun listIsEmpty(responseIsEmpty: Boolean) : Boolean{
-        return responseIsEmpty && list.adapter.itemCount == 1
+        }
     }
 }

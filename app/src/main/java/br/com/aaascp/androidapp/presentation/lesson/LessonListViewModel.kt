@@ -27,7 +27,7 @@ class LessonListViewModel : ViewModel() {
     })
 
     val lessons = switchMap(repositoryResult, { it.pagedList })!!
-    val networkState = switchMap(repositoryResult, { it.networkState })!!
+    val listState = switchMap(repositoryResult, {it.listState })!!
     val refreshState = switchMap(repositoryResult, { it.refreshState })!!
 
     fun refresh() {
