@@ -20,7 +20,7 @@ class LessonListAdapter : PagedListAdapter<Lesson, ViewHolderBase<Lesson>>(DIFF_
     override fun onBindViewHolder(
             holder: ViewHolderBase<Lesson>,
             position: Int) {
-
+        if(currentList?.size == 0) return
         val index = if (position == 0) 0 else position - 1
         val lesson = currentList?.get(index)
         lesson?.let { holder.bind(lesson) }
