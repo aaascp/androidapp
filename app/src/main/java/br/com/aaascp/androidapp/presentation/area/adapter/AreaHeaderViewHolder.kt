@@ -10,7 +10,7 @@ import br.com.aaascp.androidapp.presentation.ViewHolderBase
 import br.com.aaascp.androidapp.util.TableUtils
 import kotlinx.android.synthetic.main.row_last_update.view.*
 
-class AreaHeaderViewHolder(view: View) : ViewHolderBase<Area>(view) {
+class AreaHeaderViewHolder private constructor(view: View) : ViewHolderBase<Area>(view) {
 
     companion object {
         fun create(parent: ViewGroup): AreaHeaderViewHolder {
