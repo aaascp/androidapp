@@ -15,7 +15,6 @@ enum class ListState {
 
 data class Listing<T>(
         val pagedList: LiveData<PagedList<T>>,
-        val networkInitialLoadState: LiveData<NetworkState>,
         val networkState: LiveData<NetworkState>,
         val refreshState: LiveData<NetworkState>,
         val refresh: () -> Unit,

@@ -132,7 +132,6 @@ class LessonListActivity : AppCompatActivity() {
             EMPTY -> list.adapter = emptyAdapter
             ERROR -> list.adapter = errorAdapter
             FILLED -> list.adapter = listAdapter
-
         }
     }
 }
